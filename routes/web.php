@@ -19,7 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //esto es una prueba para ver el header
 Route::get('/index', function () {
     return view('index');
 });
+
+
+Route::get('/create/pregunta', 'PreguntaController@create');
+
+Route::post('/pregunta','PreguntaController@store');
+
