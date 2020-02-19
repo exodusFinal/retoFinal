@@ -1,0 +1,21 @@
+.signup{
+    width: 30%;
+    height: 95%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    -ms-overflow-style: none;
+}
+@media only screen and (max-width: 600px) {
+    .signup {
+        width: 70%;
+        margin-bottom: 7%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .signup {
+        width: 70%;
+        margin-bottom: 7%;
+    }
+}

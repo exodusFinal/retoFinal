@@ -421,6 +421,7 @@ class ComposerStaticInit5d03c5983cb9093f94891021aa424698
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FavoritoController' => __DIR__ . '/../..' . '/app/Http/Controllers/FavoritoController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PreguntaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreguntaController.php',
         'App\\Http\\Controllers\\RespuestaController' => __DIR__ . '/../..' . '/app/Http/Controllers/RespuestaController.php',
         'App\\Http\\Controllers\\TemaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TemaController.php',
