@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,7 +51,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,15 +64,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'nombre' => $data['name'],
-            'apellido' => $data['apellido'],
-            'descripcion' => $data['descripcion'],
-            'puntosUsu' => 1,
-            'foto' => 'foto.png',
-        ]);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->nombre = $data['nombre'];
+        $user->apellido = $data['apellido'];
+        $user->descripcion = $data['descripcion'];
+        $user->puntosUsu = 0;
+        $user->foto = 'foto.png';
+        $user->password =  Hash::make($data['password']);
+
+
+        //$image = $request->file('image');
+        /**$image = Request::file('image');
+        $input['imagename'] = $data['email'] . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $input['imagename']);
+
+
+        $user->foto = $input['imagename'];**/
+
+
+        $user->save();
+        return $user;
     }
 }
