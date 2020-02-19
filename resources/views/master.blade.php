@@ -33,9 +33,9 @@
         </ul>
     </div>
 </nav>
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2 ml-3 mr-3">
                 <ul class="list-group">
                     <li class="list-group-item active">Cras justo odio</li>
                     <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -45,12 +45,15 @@
                 </ul>
             </div>
             <div class="col-9 border">
+                @yield('content')
+{{--
                 <p>asfjkfkfdaskjfdsjkkfdlskjldfskljdfskljdkfjlskjdfsakjlfdsakldfsakljklflkljdfsjkldfskljfdsal</p>
+--}}
             </div>
         </div>
     </div>
 
-    @yield('content')
+
 </nav>
 </body>
 </html>

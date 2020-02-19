@@ -3,17 +3,14 @@
 @section('content')
 
 
-<div class="container">
+
     <h1>Crear Pregunta</h1>
 
-    <div class="row">
-        <div class="col-3">
 
-        </div>
-        <div class="col-9">
+
             <form action="/pregunta" method="POST">
                 @csrf
-                <div class="cliente border border-secondary form-group ">
+                <div class="cliente  border-secondary form-group ">
                     <div class="m-1">
                         <label for="titulo">Titulo:</label>
                         <input class="form-control" type="text" id="titulo" name="titulo" REQUIRED>
@@ -44,12 +41,12 @@
                     </div>
                 </div>
             </form>
-        </div>
-
-    </div>
 
 
-</div>
+
+
+
+
 
 
 
