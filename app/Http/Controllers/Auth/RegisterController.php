@@ -62,7 +62,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data )
     {
         $user = new User();
         $user->name = $data['name'];
@@ -73,19 +73,9 @@ class RegisterController extends Controller
         $user->puntosUsu = 0;
         $user->foto = 'foto.png';
         $user->password =  Hash::make($data['password']);
-
-
-        //$image = $request->file('image');
-        /**$image = Request::file('image');
-        $input['imagename'] = $data['email'] . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images');
-        $image->move($destinationPath, $input['imagename']);
-
-
-        $user->foto = $input['imagename'];**/
-
-
         $user->save();
         return $user;
     }
+
+
 }
