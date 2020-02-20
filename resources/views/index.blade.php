@@ -5,11 +5,13 @@
     @foreach($preguntas as $pregunta)
         <div class="row">
             <div class="col-2 mt-3">
+                <button type="button" class="btn btn-default">
+                    <i class="fas fa-star"></i>
+                </button>
                 <button type="button" class="btn btn-primary">
                     Puntos <span class="badge badge-light">{{$pregunta->puntuacionPregu}}</span>
                     <span class="sr-only">unread messages</span>
                 </button>
-                <a class="btn  btn-primary" href="#" role="button"><img src="https://lipis.github.io/flag-icon-css/flags/4x3/us.svg" height="20" alt="USA flag"></a>
             </div>
             <div class="col-10">
                 <div class="card mt-3 mb-3" >
