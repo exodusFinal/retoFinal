@@ -66,15 +66,12 @@
                 <div class="form-group row">
                     <input id="password-confirm" type="password" class="form-control" placeholder="Repite contraseña" name="password_confirmation" required autocomplete="new-password">
                 </div>
-
-                <div class="form-group row mb-0 align-content-center">
-                    <label class="btn btn-default bg-secondary">
-                        Cambia de foto <input name="image" type="file" hidden>
-                    </label>
-                </div>
-
                 <div class="form-group row mb-0">
                     <button class="btn btn-success btn-block" type="submit">Registrar usuario</button>
+                </div>
+                <hr>
+                <div class="form-group row mb-0">
+                    <a class="aButton" href="{{route('login')}}" style="width: 100%"><button class="btn btn-success btn-block" type="button">Iniciar sesión</button></a>
                 </div>
             </form>
         </div>

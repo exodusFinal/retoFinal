@@ -5,12 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Plane Overflow</title>
+    <title>Exodus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
+@if(Auth::check())
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand ml-2" href="#"><img src="{{asset('img/logo.png')}}" height="42" width="42"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link" href="#">Log Out</a></li>
+            <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
         </ul>
     </div>
 </nav>
@@ -47,14 +48,16 @@
         </div>
         <div class="col-9 border">
             @yield('content')
-            {{--
-                            <p>asfjkfkfdaskjfdsjkkfdlskjldfskljdfskljdkfjlskjdfsakjlfdsakldfsakljklflkljdfsjkldfskljfdsal</p>
-            --}}
         </div>
     </div>
 </div>
 
 
 </nav>
+@else
+    <div class="content">
+        @yield('content')
+    </div>
+@endif
 </body>
 </html>

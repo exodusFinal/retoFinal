@@ -19,3 +19,6 @@
         margin-bottom: 7%;
     }
 }
+.aButton:hover, .aButton:visited, .aButton{
+    text-decoration: none;
+}
