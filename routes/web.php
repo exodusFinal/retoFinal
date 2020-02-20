@@ -26,7 +26,8 @@ Route::get('/index', function () {
 });
 
 
-Route::get('/create/pregunta', 'PreguntaController@create');
+Route::get('/index','PreguntaController@index');
 
+Route::get('/create/pregunta', 'PreguntaController@create');
 Route::post('/pregunta','PreguntaController@store');
 

@@ -17,6 +17,9 @@ class PreguntaController extends Controller
     public function index()
     {
         //
+        $preguntas = Pregunta::all();
+        return view('index',compact('preguntas'));
+
     }
 
     /**
