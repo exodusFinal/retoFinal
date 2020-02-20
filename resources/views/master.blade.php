@@ -8,6 +8,7 @@
     <title>Exodus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
@@ -46,6 +47,7 @@
                 <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
+
         <div class="col-9 border">
             @yield('content')
         </div>
