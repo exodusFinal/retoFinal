@@ -2,13 +2,9 @@
 
 @section('content')
 
-
-
     <h1>Crear Pregunta</h1>
 
-
-
-            <form action="/pregunta/store" method="POST">
+            <form action="{{route('pregunta.store')}}" method="POST">
                 @csrf
                 <div class="cliente  border-secondary form-group ">
                     <div class="m-1">
@@ -22,14 +18,9 @@
 
                     <div class="m-1">
                         <label for="tema">Tema</label>
-                       {{-- <select class="custom-select" name="tema"  REQUIRED>
-                            <option value="1">Vehículos ligeros</option>
-                            <option value="2">Vehículos pesados </option>
-                            <option value="3">Vehículos especiales y agrícolas</option>
-                            <option value="4">Otros vehículos</option>
-                        </select>--}}
+
                         <select class="custom-select" name="tema">
-                            <option value="">--</option>
+                            <option disabled selected value="">--</option>
                             @foreach($temas as $tema)
                                 <option value="{{$tema->id}}">{{$tema->nombreTema}}</option>
                             @endforeach
@@ -62,13 +53,3 @@
 
 
 @endsection
-
-
-<?php
-/**
- * Created by PhpStorm.
- * User: msimm
- * Date: 19/02/2020
- * Time: 12:29
- */
-?>

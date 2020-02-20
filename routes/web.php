@@ -25,4 +25,9 @@ Route::get('/index','PreguntaController@index')->name('index')->middleware('auth
 
 Route::get('/create/pregunta', 'PreguntaController@create')->name('pregunta.create')->middleware('auth');
 Route::post('/pregunta/store','PreguntaController@store')->name('pregunta.store')->middleware('auth');
+Route::get('/pregunta/update', 'PreguntaController@update')->name('pregunta.update')->middleware('auth');
+
+
+
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
+
