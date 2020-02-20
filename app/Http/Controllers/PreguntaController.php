@@ -47,10 +47,10 @@ class PreguntaController extends Controller
         //
         $preguntas = new Pregunta();
 
-        $preguntas->titulo = request("nombreusu");
-        $preguntas->descripcion = request("email");
-        $preguntas->puntuacionPregu = request(0);
-        $preguntas->user_id = Auth::id;
+        $preguntas->titulo = request("titulo");
+        $preguntas->descripcion = request("descripcion");
+        $preguntas->puntuacionPregu = 0;
+        $preguntas->user_id = Auth::id();
         $preguntas->tema_id = request("tema");
 
         $preguntas->save();
@@ -86,12 +86,19 @@ class PreguntaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pregunta $pregunta)
+    public function update(Request $request)
     {
-        //
+
+        $pregunta = Pregunta::find(request('id'));
+        $puntos = $pregunta->puntuacionPregu +1;
+        $pregunta->puntuacionPregu = $puntos;
+
+        $pregunta->save();
+
+        return $pregunta;
+
     }
 
     /**
