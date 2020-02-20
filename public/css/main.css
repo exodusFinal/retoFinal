@@ -19,3 +19,6 @@
         margin-bottom: 7%;
     }
 }
+.fas:before{
+    color: red;
+}
