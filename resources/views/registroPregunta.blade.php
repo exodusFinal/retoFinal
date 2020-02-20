@@ -8,7 +8,7 @@
 
 
 
-            <form action="/pregunta" method="POST">
+            <form action="/pregunta/store" method="POST">
                 @csrf
                 <div class="cliente  border-secondary form-group ">
                     <div class="m-1">
