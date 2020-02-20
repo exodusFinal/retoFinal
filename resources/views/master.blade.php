@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
@@ -36,6 +37,7 @@
                 <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
             </ul>
         </div>
+
     </nav>
     <div class="container-fluid mt-4">
         <div class="row">
@@ -51,9 +53,14 @@
             <div class="col-9 border">
                 @yield('content')
             </div>
+
+
+        <div class="col-9 border">
+            @yield('content')
+
         </div>
     </div>
-
+    </div>
 
     </nav>
 @else
