@@ -33,7 +33,7 @@
                 <a class="nav-link" href="/create/pregunta">Crear pregunta</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Perfil</a>
+                <a class="nav-link" href="/perfil">Perfil</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
