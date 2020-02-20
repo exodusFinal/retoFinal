@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pregunta;
 use App\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class PreguntaController extends Controller
@@ -54,7 +55,7 @@ class PreguntaController extends Controller
 
         $preguntas->save();
 
-        return redirect('/index');
+        return redirect()->route('index');
 
 
     }
