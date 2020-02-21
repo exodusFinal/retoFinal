@@ -29,4 +29,4 @@ Route::get('/pregunta/update', 'PreguntaController@update')->name('pregunta.upda
 
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
 
-
+Route::get('/contactarAnunciante', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');
