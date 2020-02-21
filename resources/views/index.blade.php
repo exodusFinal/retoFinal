@@ -5,9 +5,7 @@
     @foreach($preguntas as $pregunta)
         <div class="row">
             <div class="col-2 mt-3">
-                <button type="button" class="btn btn-default">
-                    <i class="fas fa-star"></i>
-                </button>
+                <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}})"><i class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
                 <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1" id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
             <div class="col-10">
@@ -48,7 +46,25 @@
             });
         }
 
+        function anadirFav(id) {
+            $.ajax({
+                method: "get",
+                url: '/favorito',
+                data:{id: id},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function() {
+                   alert ("Añadido");
+                    $('#puntosum'+pregunta['id']).html(pregunta['puntuacionPregu']);
 
+                },
+                error: function (data) {
+                    console.log("Error");
+                    console.log(data);
+                }
+            });
+        }
 
 
     </script>
