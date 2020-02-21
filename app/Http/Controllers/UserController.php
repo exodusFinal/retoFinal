@@ -16,6 +16,7 @@ class UserController extends Controller
 
         return redirect()->route('login');
     }
+
     public function contactar()
     {
 
@@ -39,5 +40,24 @@ class UserController extends Controller
         $mail->AddAddress($user->email);
         $mail->Send();
         return $user->email;
+    }
+
+    public function show()
+    {
+        //
+
+        $usuario  = Auth::id();
+        $users = User::find($usuario);
+
+
+        return view('perfil',compact('users'));
+
+    }
+
+    public function update($id){
+
+        $usuario = User::find($id);
+
+
     }
 }

@@ -28,5 +28,10 @@ Route::post('/pregunta/store','PreguntaController@store')->name('pregunta.store'
 Route::get('/pregunta/update', 'PreguntaController@update')->name('pregunta.update')->middleware('auth');
 
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
+Route::get('/perfil', 'UserController@show')->name('perfil')->middleware('auth');
+Route::get('/usuario/{id}/update', 'UserController@update')->name('perfil.update')->middleware('auth');
+
+
+Route::get('/favorito', 'FavoritoController@store')->name('favorito')->middleware('auth');
 
 Route::get('/contactarAnunciante', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');
