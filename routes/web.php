@@ -34,4 +34,4 @@ Route::get('/usuario/{id}/update', 'UserController@update')->name('perfil.update
 
 Route::get('/favorito', 'FavoritoController@store')->name('favorito')->middleware('auth');
 
-
+Route::get('/contactarAnunciante', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');

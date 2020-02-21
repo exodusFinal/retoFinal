@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 class UserController extends Controller
 {
@@ -12,6 +15,31 @@ class UserController extends Controller
         Auth::logout();
 
         return redirect()->route('login');
+    }
+
+    public function contactar()
+    {
+
+        $user = User::find(request()->all()['idUsu']);
+
+
+
+        $mail = new PHPMailer();
+        $mail->isSmtp();
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = '465';
+        $mail->isHTML(true);
+        $mail->Username = 'final.retodaw@gmail.com';
+        $mail->Password = '12345Abcde';
+        $mail->SetFrom('final.retodaw@gmail.com');
+        $mail->Subject = 'Te han contactado de la empresa';
+        $mail->Body = request()->all()['mensaje'];
+        $mail->AddAddress($user->email);
+        $mail->Send();
+        return $user->email;
     }
 
     public function show()
@@ -31,9 +59,5 @@ class UserController extends Controller
         $usuario = User::find($id);
 
 
-
-
-
     }
-
 }
