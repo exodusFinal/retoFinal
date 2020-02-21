@@ -1,21 +1,52 @@
-.signup{
+.signup {
     width: 30%;
     height: 95%;
-    margin-top: 2%;
-    margin-bottom: 3%;
+    margin-top: 4%;
     padding-bottom: 3%;
     padding-top: 3%;
     -ms-overflow-style: none;
 }
+
+
+
+.aButton:hover, .aButton:visited, .aButton {
+    text-decoration: none;
+}
+
+.login {
+    width: 30%;
+    height: 70%;
+    padding: 2%;
+}
+#login{
+    height: 82.5%;
+    margin-top: 10%;
+}
+
+
 @media only screen and (max-width: 600px) {
     .signup {
         width: 70%;
-        margin-bottom: 7%;
+        margin-top: 7%;
+    }
+    .login{
+        width: 50%;
+    }
+    #login{
+        margin-top: 40%;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .signup {
         width: 70%;
         margin-bottom: 7%;
     }
+}
+
+.aButton:hover, .aButton:visited, .aButton{
+    text-decoration: none;
+}
+.fas:before{
+    color: red;
 }

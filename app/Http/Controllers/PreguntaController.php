@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Pregunta;
+use App\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class PreguntaController extends Controller
 {
@@ -15,6 +18,9 @@ class PreguntaController extends Controller
     public function index()
     {
         //
+        $preguntas = Pregunta::all();
+        return view('index',compact('preguntas'));
+
     }
 
     /**
@@ -25,6 +31,9 @@ class PreguntaController extends Controller
     public function create()
     {
         //
+        $temas = Tema::all();
+        return view('registroPregunta',compact('temas'));
+
     }
 
     /**
@@ -36,6 +45,19 @@ class PreguntaController extends Controller
     public function store(Request $request)
     {
         //
+        $preguntas = new Pregunta();
+
+        $preguntas->titulo = request("titulo");
+        $preguntas->descripcion = request("descripcion");
+        $preguntas->puntuacionPregu = 0;
+        $preguntas->user_id = Auth::id();
+        $preguntas->tema_id = request("tema");
+
+        $preguntas->save();
+
+        return redirect()->route('index');
+
+
     }
 
     /**
@@ -64,12 +86,19 @@ class PreguntaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pregunta $pregunta)
+    public function update(Request $request)
     {
-        //
+
+        $pregunta = Pregunta::find(request('id'));
+        $puntos = $pregunta->puntuacionPregu +1;
+        $pregunta->puntuacionPregu = $puntos;
+
+        $pregunta->save();
+
+        return $pregunta;
+
     }
 
     /**
