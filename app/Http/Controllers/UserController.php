@@ -25,4 +25,15 @@ class UserController extends Controller
         return view('perfil',compact('users'));
 
     }
+
+    public function update($id){
+
+        $usuario = User::find($id);
+
+
+
+
+
+    }
+
 }
