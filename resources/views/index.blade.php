@@ -13,9 +13,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$pregunta->titulo}}</h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
-                        <a href="#" class="card-link">Ver anuncio</a>
-                        <a href="#" class="card-link">Contactar</a>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#contactar">Contactar</button>
+                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
+                        <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
             </div>

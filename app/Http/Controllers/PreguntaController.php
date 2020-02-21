@@ -68,7 +68,9 @@ class PreguntaController extends Controller
      */
     public function show(Pregunta $pregunta)
     {
-        //
+        return view('detalleAnuncio',[
+            'pregunta' => $pregunta
+        ]);
     }
 
     /**
