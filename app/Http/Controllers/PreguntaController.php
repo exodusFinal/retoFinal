@@ -70,12 +70,13 @@ class PreguntaController extends Controller
      */
     public function show(Pregunta $pregunta,$id)
     {
+        return view('detalleAnuncio',[
+            'pregunta' => $pregunta
+        ]);
         //
-        $preguntas = Pregunta::all()->where('user_id','=',$id);
-
-
-        return view('index',compact('preguntas'));
-
+     /* $preguntas = Pregunta::all()->where('user_id','=',$id);
+        return view('index',compact('preguntas'));*/
+      
     }
 
     /**
