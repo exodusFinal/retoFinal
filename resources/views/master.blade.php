@@ -52,7 +52,7 @@
                         <a class="nav-item" href="/pregunta/misPreguntas/{{Auth::id()}}">Mis Preguntas</a>
                     </li>
                     <li class="list-group-item">
-                        <a class="nav-item" href="">Favoritos</a>
+                        <a class="nav-item" href="/pregunta/favoritos/{{Auth::id()}}">Favoritos</a>
                     </li>
                     <li class="list-group-item">
                         <a class="nav-item" href="/pregunta/puntos">Mejor valoradas</a>
