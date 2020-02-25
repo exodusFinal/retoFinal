@@ -49,13 +49,13 @@
             <div class="col-2 ml-3 mr-3">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a class="nav-item" href="/pregunta/{{Auth::id()}}">Mis Preguntas</a>
+                        <a class="nav-item" href="/pregunta/misPreguntas/{{Auth::id()}}">Mis Preguntas</a>
                     </li>
                     <li class="list-group-item">
                         <a class="nav-item" href="">Favoritos</a>
                     </li>
                     <li class="list-group-item">
-                        <a class="nav-item" href="">Mejor valoradas</a>
+                        <a class="nav-item" href="/pregunta/puntos">Mejor valoradas</a>
                     </li>
                     <li class="list-group-item">Porta ac consectetur ac</li>
                     <li class="list-group-item">Vestibulum at eros</li>
