@@ -19,9 +19,13 @@ class PreguntaController extends Controller
     public function index()
     {
         //
-        $preguntas = Pregunta::all();;
+        $preguntas = Pregunta::all();
+
+
 
         return view('index',compact('preguntas'));
+
+
 
     }
 
@@ -68,14 +72,14 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta,$id)
+    public function show(Pregunta $pregunta)
     {
         return view('detalleAnuncio',[
             'pregunta' => $pregunta
         ]);
         //
-     /* $preguntas = Pregunta::all()->where('user_id','=',$id);
-        return view('index',compact('preguntas'));*/
+
+
       
     }
 
@@ -119,5 +123,20 @@ class PreguntaController extends Controller
     {
         //
     }
+
+    public function orderByPuntos(){
+
+        $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')->get();
+        
+        return view('mejorValoradas',compact('preguntas'));
+    }
+
+    public function misPreguntas($id){
+
+        $preguntas = Pregunta::all()->where('user_id','=',$id);
+
+        return view('misPreguntas',compact('preguntas'));
+    }
+
 
 }

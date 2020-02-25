@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Lista de preguntas</h1></div>
+    <div class="col-12"> <h1>Mejor Valoradas</h1></div>
     @foreach($preguntas as $pregunta)
         <div class="row">
             <div class="col-2 mt-3">
@@ -57,7 +57,7 @@
                 success: function(pregunta) {
                     $('#puntosum'+pregunta['id']).html(pregunta['puntuacionPregu']);
 
-        },
+                },
                 error: function (data) {
                     console.log("Error");
                     console.log(data);
@@ -85,7 +85,7 @@
                 }
             });
         }
-        
+
         function anadirFav(id,usu) {
             $.ajax({
                 method: "get",
@@ -95,7 +95,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function() {
-                   alert ("Añadido a favoritos");
+                    alert ("Añadido a favoritos");
                 },
                 error: function (data) {
                     console.log("Error");
@@ -107,4 +107,26 @@
     </script>
 
 
+
+
+
+
+
 @endsection
+
+
+
+
+
+
+
+
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: msimm
+ * Date: 25/02/2020
+ * Time: 17:42
+ */
+?>
