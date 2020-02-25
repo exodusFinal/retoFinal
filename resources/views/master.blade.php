@@ -26,45 +26,47 @@
         </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active ml-4">
-                <a class="nav-link" href="/index">Inicio </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/create/pregunta">Crear pregunta</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/perfil">Perfil</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
-        </ul>
-    </div>
-</nav>
-<div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-2 ml-3 mr-3">
-            <ul class="list-group">
-                <li class="list-group-item active">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active ml-4">
+                    <a class="nav-link" href="/index">Inicio </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/create/pregunta">Crear pregunta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/perfil">Perfil</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-link">{{Auth::id()}}</a></li>
+                <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
             </ul>
         </div>
-
     </nav>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-2 ml-3 mr-3">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a class="nav-item" href="/pregunta/{{Auth::id()}}">Mis Preguntas</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-item" href="">Favoritos</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-item" href="">Mejor valoradas</a>
+                    </li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+            <div class="col-9 border">
+                @yield('content')
 
-        <div class="col-9 border">
-            @yield('content')
-
+            </div>
         </div>
     </div>
-    </div>
-
-    </nav>
 @else
     <div class="container-fluid">
         @yield('content')

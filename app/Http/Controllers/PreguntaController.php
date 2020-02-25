@@ -6,6 +6,7 @@ use App\Pregunta;
 use App\Tema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class PreguntaController extends Controller
@@ -18,7 +19,8 @@ class PreguntaController extends Controller
     public function index()
     {
         //
-        $preguntas = Pregunta::all();
+        $preguntas = Pregunta::all();;
+
         return view('index',compact('preguntas'));
 
     }
@@ -66,11 +68,15 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta)
+    public function show(Pregunta $pregunta,$id)
     {
         return view('detalleAnuncio',[
             'pregunta' => $pregunta
         ]);
+        //
+     /* $preguntas = Pregunta::all()->where('user_id','=',$id);
+        return view('index',compact('preguntas'));*/
+      
     }
 
     /**
@@ -113,4 +119,5 @@ class PreguntaController extends Controller
     {
         //
     }
+
 }
