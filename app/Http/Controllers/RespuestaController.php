@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Respuesta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RespuestaController extends Controller
 {
@@ -33,9 +35,26 @@ class RespuestaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $respuesta = new Respuesta();
+
+        $respuesta->respuesta = request('respuesta');
+        $respuesta->puntosResp = 0;
+        $respuesta->pregunta_id = $id;
+        $respuesta->user_id = Auth::id();
+
+        if ($request->hasFile('adjunto') && $request->file('adjunto')->isValid()) {
+            $adj = $request->file('adjunto');
+            $input['attachFileName'] = 'adjunto' . time() . '.' . $adj->getClientOriginalExtension();
+            $destinationPath = public_path('/adjuntos');
+            $adj->move($destinationPath, $input['attachFileName']);
+            $respuesta->adjunto = $input['attachFileName'];
+        }
+
+        $respuesta->save();
+
+        return redirect()->route('anuncio.detalle', $id);
     }
 
     /**
@@ -44,9 +63,15 @@ class RespuestaController extends Controller
      * @param  \App\Respuesta  $respuesta
      * @return \Illuminate\Http\Response
      */
-    public function show(Respuesta $respuesta)
+    public function show($id)
     {
-        //
+        $respuesta = Respuesta::find($id);
+
+
+        //Storage::download('public/adjuntos/'.$respuesta->adjunto);
+        //return redirect('anuncio.detalle', $respuesta->pregunta_id);
+        return  response()->download(public_path('adjuntos/'.$respuesta->adjunto));
+
     }
 
     /**
