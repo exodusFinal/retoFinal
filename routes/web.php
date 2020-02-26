@@ -35,7 +35,7 @@ Route::get('/pregunta/favoritos/{id}', 'PreguntaController@favoritos')->name('pr
 
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
 Route::get('/perfil', 'UserController@show')->name('perfil')->middleware('auth');
-Route::get('/usuario/{id}/update', 'UserController@update')->name('perfil.update')->middleware('auth');
+Route::post('/usuario/update/{id}', 'UserController@update')->name('perfil.update')->middleware('auth');
 
 
 Route::get('/favorito', 'FavoritoController@store')->name('favorito')->middleware('auth');
@@ -43,3 +43,7 @@ Route::get('/favorito', 'FavoritoController@store')->name('favorito')->middlewar
 Route::get('/contactarAnunciante', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');
 
 Route::get('/anuncio/detalle/{id}', 'PreguntaController@show')->name('anuncio.detalle')->middleware('auth');
+
+Route::post('/respuesta/añadir/{id}', 'RespuestaController@store')->name('respuesta.añadir')->middleware('auth');
+
+Route::get('/archivo/descargar/{id}', 'RespuestaController@show')->name('archivo.descargar')->middleware('auth');

@@ -74,8 +74,9 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta)
+    public function show($id)
     {
+        $pregunta = Pregunta::find($id);
         return view('detalleAnuncio',[
             'pregunta' => $pregunta
         ]);
