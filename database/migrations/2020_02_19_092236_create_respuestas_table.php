@@ -17,7 +17,7 @@ class CreateRespuestasTable extends Migration
             $table->bigIncrements('id');
             $table->string('respuesta');
             $table->integer('puntosResp');
-            $table->string('adjunto');
+            $table->string('adjunto')->nullable();
             $table->unsignedBigInteger('pregunta_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

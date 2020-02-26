@@ -54,10 +54,20 @@ class UserController extends Controller
 
     }
 
-    public function update($id){
+    public function update(Request $request, $id){
 
         $usuario = User::find($id);
 
 
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $adj = $request->file('image');
+            $input['imageName'] = $usuario->email . '.' . $adj->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $adj->move($destinationPath, $input['imageName']);
+            $usuario->foto = $input['imageName'];
+        }
+    $usuario->save();
+
+        return redirect()->route('index');
     }
 }

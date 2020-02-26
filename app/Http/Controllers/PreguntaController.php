@@ -22,10 +22,9 @@ class PreguntaController extends Controller
     {
         //
         $preguntas = Pregunta::all();
+        $preguntas = Pregunta::paginate(5);
 
-
-
-        return view('index',compact('preguntas'));
+        return view('index',['preguntas' => $preguntas]);
 
 
 
@@ -74,8 +73,9 @@ class PreguntaController extends Controller
      * @param  \App\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function show(Pregunta $pregunta)
+    public function show($id)
     {
+        $pregunta = Pregunta::find($id);
         return view('detalleAnuncio',[
             'pregunta' => $pregunta
         ]);
