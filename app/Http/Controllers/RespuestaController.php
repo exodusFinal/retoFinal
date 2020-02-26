@@ -92,9 +92,15 @@ class RespuestaController extends Controller
      * @param  \App\Respuesta  $respuesta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Respuesta $respuesta)
+    public function update()
     {
-        //
+        $respuesta = Respuesta::find(request('id'));
+        $puntos = $respuesta->puntosResp +1;
+        $respuesta->puntosResp = $puntos;
+
+        $respuesta->save();
+
+        return $respuesta;
     }
 
     /**
