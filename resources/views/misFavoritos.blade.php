@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Lista de preguntas</h1></div>
+    <div class="col-12"> <h1>Misssad Favoritos</h1></div>
     @foreach($preguntas as $pregunta)
-        <div class="row">
+       <div class="row">
             <div class="col-2 mt-3">
                 <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
                 <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1" id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$pregunta->titulo}}</h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
-                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
+                       <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver anuncio</a>{{-- De $pregunta a $pregunta->id --}}
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
@@ -22,8 +22,7 @@
     @endforeach
 
 
-
-    <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
+   <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -57,7 +56,7 @@
                 success: function(pregunta) {
                     $('#puntosum'+pregunta['id']).html(pregunta['puntuacionPregu']);
 
-        },
+                },
                 error: function (data) {
                     console.log("Error");
                     console.log(data);
@@ -85,7 +84,7 @@
                 }
             });
         }
-        
+
         function anadirFav(id,usu) {
             $.ajax({
                 method: "get",
@@ -95,7 +94,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function() {
-                   alert ("Añadido a favoritos");
+                    alert ("Añadido a favoritos");
                 },
                 error: function (data) {
                     console.log("Error");
@@ -106,5 +105,9 @@
 
     </script>
 
-
 @endsection
+
+
+
+
+

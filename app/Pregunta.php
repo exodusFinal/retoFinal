@@ -20,7 +20,7 @@ class Pregunta extends Model
     }
     public function favorito()
     {
-        return $this->belongsToMany('App\user');
+        return $this->hasMany('App\Favorito');
     }
 
 }
