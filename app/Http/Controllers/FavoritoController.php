@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Favorito;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use  App\Pregunta;
+
 
 class FavoritoController extends Controller
 {
@@ -36,6 +40,17 @@ class FavoritoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $favorito = new Favorito();
+
+        $favorito->user_id = request('usu');
+        $favorito->pregunta_id = request('id');
+
+        $favorito->save();
+
+        return redirect()->route('index');
+
+
     }
 
     /**

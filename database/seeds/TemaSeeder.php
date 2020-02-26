@@ -11,6 +11,24 @@ class TemaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('temas')->insert([
+            'id' => 1,
+            'nombreTema' => "Software",
+        ]);
+
+        DB::table('temas')->insert([
+            'id' => 2,
+            'nombreTema' => "Costes",
+        ]);
+
+        DB::table('temas')->insert([
+            'id' => 3,
+            'nombreTema' => "Piezas",
+        ]);
+
+        DB::table('temas')->insert([
+            'id' => 4,
+            'nombreTema' => "Otros",
+        ]);
     }
 }
