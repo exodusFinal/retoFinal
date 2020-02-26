@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Favorito;
 use App\Pregunta;
 use App\Tema;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -79,8 +81,6 @@ class PreguntaController extends Controller
         ]);
         //
 
-
-      
     }
 
     /**
@@ -127,7 +127,7 @@ class PreguntaController extends Controller
     public function orderByPuntos(){
 
         $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')->get();
-        
+
         return view('mejorValoradas',compact('preguntas'));
     }
 
@@ -137,6 +137,26 @@ class PreguntaController extends Controller
 
         return view('misPreguntas',compact('preguntas'));
     }
+
+    public function favoritos($id){
+
+       /* $favoritos = Favorito::all()->where('user_id','=',$id);*/
+
+        $usuario = User::find($id);
+
+        $favUsu = $usuario->favorito;
+
+        $preguntas = DB::table('preguntas')
+            ->select('preguntas.*')
+            ->join('favoritos','preguntas.id','=','favoritos.pregunta_id')
+            ->where('favoritos.user_id','=',$id)
+            ->orderBy('preguntas.id','DESC')
+            ->get();
+
+        return view('misFavoritos',compact('preguntas'));
+
+    }
+
 
 
 }

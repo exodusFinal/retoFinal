@@ -44,7 +44,7 @@ class User extends Authenticatable
     }
     public function favorito()
     {
-        return $this->belongsToMany('App\Pregunta');
+        return $this->hasMany('App\Favorito');
     }
 
 }
