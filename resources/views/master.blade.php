@@ -78,7 +78,7 @@
                     <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
             </div>
-            <div class="border col-12 col-md-9 ">
+            <div class="col-12 col-md-9">
                 @yield('content')
 
             </div>
