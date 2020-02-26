@@ -918,6 +918,7 @@ return array(
     'Illuminate\\Broadcasting\\Broadcasters\\RedisBroadcaster' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/RedisBroadcaster.php',
     'Illuminate\\Broadcasting\\Broadcasters\\UsePusherChannelConventions' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/UsePusherChannelConventions.php',
     'Illuminate\\Broadcasting\\Channel' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/Channel.php',
+    'Illuminate\\Broadcasting\\EncryptedPrivateChannel' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/EncryptedPrivateChannel.php',
     'Illuminate\\Broadcasting\\InteractsWithSockets' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/InteractsWithSockets.php',
     'Illuminate\\Broadcasting\\PendingBroadcast' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/PendingBroadcast.php',
     'Illuminate\\Broadcasting\\PresenceChannel' => $vendorDir . '/laravel/framework/src/Illuminate/Broadcasting/PresenceChannel.php',
@@ -4074,4 +4075,5 @@ return array(
     'phpDocumentor\\Reflection\\Types\\String_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/String_.php',
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+    'usersTableSeeder' => $baseDir . '/database/seeds/usersTableSeeder.php',
 );
