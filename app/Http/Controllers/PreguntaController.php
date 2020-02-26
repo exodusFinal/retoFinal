@@ -22,10 +22,9 @@ class PreguntaController extends Controller
     {
         //
         $preguntas = Pregunta::all();
+        $preguntas = Pregunta::paginate(5);
 
-
-
-        return view('index',compact('preguntas'));
+        return view('index',['preguntas' => $preguntas]);
 
 
 
