@@ -48,5 +48,12 @@
     text-decoration: none;
 }
 .fas:before{
-    color: red;
+    color: black;
+}
+.paginacion nav ul li.page-item.active .page-link{
+    background-color: #5bdcc6;
+    border-color: #5bdcc6;
+}
+.paginacion nav ul li.page-item.active .page-link{
+
 }
