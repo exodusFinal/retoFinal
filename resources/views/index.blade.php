@@ -23,8 +23,8 @@
         <hr style="color: #5bdcc6;">
 --}}
     @endforeach
-    <div class="paginacion ">
-        {{$preguntas->links()}}
+    <div class="row paginacion d-flex justify-content-center">
+       {{$preguntas->links()}}
     </div>
 
 
