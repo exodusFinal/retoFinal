@@ -1,17 +1,17 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Lista de preguntas</h1></div>
+    <div class="col-12 text-center"> <h1 class="text-uppercase">Lista de preguntas</h1></div>
     @foreach($preguntas as $pregunta)
-        <div class="row">
-            <div class="col-2 mt-3">
+        <div class="row border rounded mb-2">
+            <div class="col-3 mt-5">
                 <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
                 <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1" id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
-            <div class="col-10">
-                <div class="card mt-3 mb-3" >
+            <div class="col-9">
+                <div class=" mt-3 mb-3" >
                     <div class="card-body">
-                        <h5 class="card-title">{{$pregunta->titulo}}</h5>
+                        <h5  class="card-title font-weight-bold text-uppercase">{{$pregunta->titulo}}</h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
@@ -19,6 +19,9 @@
                 </div>
             </div>
         </div>
+{{--
+        <hr style="color: #5bdcc6;">
+--}}
     @endforeach
     <div class="row paginacion d-flex justify-content-center">
        {{$preguntas->links()}}
@@ -87,7 +90,7 @@
                 }
             });
         }
-        
+
         function anadirFav(id,usu) {
             $.ajax({
                 method: "get",
