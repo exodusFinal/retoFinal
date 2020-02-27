@@ -41,6 +41,15 @@
                     <a class="nav-link" href="/perfil">Perfil</a>
                 </li>
             </ul>
+            <form class="form-inline mr-5" action="/index" method="get">
+                <select class="form-control" name="tema_id">
+                    @foreach(\App\Tema::all() as $tema)
+                        <option value="{{$tema->id}}">{{$tema->nombreTema}}</option>
+                    @endforeach
+                </select>
+                    <input class="form-control mr-sm-2" type="search"  id="titulo" name="titulo" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="nav-link">{{Auth::user()->name}}</a></li>
                 <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
