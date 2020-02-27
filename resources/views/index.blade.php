@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12 text-center"> <h1 class="text-uppercase">Lista de preguntas</h1></div>
+
+    <div class="col-12 text-center"> <h2 class="text-uppercase">Lista de preguntas</h2></div>
 
     @foreach($preguntas as $pregunta)
         <div class="row border rounded mb-2">
