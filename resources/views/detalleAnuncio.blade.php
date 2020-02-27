@@ -37,6 +37,7 @@
     @foreach($pregunta->respuesta as $resp)
         <form method="get">
             <div class="row">
+
                 <div class="col mt-3">
                     <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$resp->id}})">Puntos<span class="badge badge-light ml-1" id="puntosumR{{$resp->id}}">{{$resp->puntosResp}}</span></button>
                 </div>
@@ -51,6 +52,7 @@
         </form>
 
     @endforeach
+
 
 
     <script>
