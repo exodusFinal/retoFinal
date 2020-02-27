@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="col-12"> <h1>Mis Preguntas</h1></div>
+
     @foreach($preguntas as $pregunta)
+
         <div class="row">
             <div class="col-2 mt-3">
                 <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
@@ -14,36 +16,15 @@
                         <h5 class="card-title">{{$pregunta->titulo}}</h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
-                        <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
             </div>
         </div>
+
     @endforeach
-
-
-
-    <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactarLabel">Contactar con el Anunciante</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <textarea placeholder="Mensaje" id="mensaje" name="mensaje" style="width: 100%"></textarea>
-                    <input type="hidden" id="idUsu" value="{{$pregunta->user_id}}">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="contactarAnunciante()">Enviar</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    @if(!isset($pregunta))
+        <p>Todavía no has hecho ninguna pregunta! Haz tu primera</p>
+    @endif
 
     <script>
         function sumarPunto(id) {
@@ -86,16 +67,16 @@
             });
         }
 
-        function anadirFav(id,usu) {
+        function anadirFav(id) {
             $.ajax({
                 method: "get",
                 url: '/favorito',
-                data:{id: id,usu: usu},
+                data:{id: id},
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function() {
-                    alert ("Añadido a favoritos");
+                success: function(texto) {
+                    alert (texto);
                 },
                 error: function (data) {
                     console.log("Error");
