@@ -26,6 +26,7 @@ Route::get('/create/pregunta', 'PreguntaController@create')->name('pregunta.crea
 
 Route::post('/pregunta/store','PreguntaController@store')->name('pregunta.store')->middleware('auth');
 Route::get('/pregunta/update', 'PreguntaController@update')->name('pregunta.update')->middleware('auth');
+Route::get('/respuesta/update', 'RespuestaController@update')->name('respuesta.update')->middleware('auth');
 
 Route::get('/pregunta/misPreguntas/{id}', 'PreguntaController@misPreguntas')->name('pregunta.mispreguntas')->middleware('auth');
 Route::get('/pregunta/puntos', 'PreguntaController@orderByPuntos')->name('pregunta.puntos')->middleware('auth');
