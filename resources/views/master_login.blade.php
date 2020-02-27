@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{asset('img/logo_ico.ico')}}" type="image/x-icon" sizes="16x16">
 </head>
-<body>
+<body style="background-image:url({{url('img/bg.jpg')}})">
 @if(Auth::check())
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-2" href="{{route('index')}}"><img src="{{asset('img/logo.png')}}" height="42"
@@ -81,7 +81,7 @@
     </div>
 @else
     <div class="container-fluid">
-        @yield('content')
+        @yield('login')
     </div>
 @endif
 <!-- Footer -->
