@@ -464,3 +464,4 @@ composer.lock
 vendor
 /vendor/*
 .idea
+node_modules/

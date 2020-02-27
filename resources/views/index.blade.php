@@ -1,7 +1,9 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12 text-center"> <h1 class="text-uppercase">Lista de preguntas</h1></div>
+
+    <div class="col-12 text-center"> <h2 class="text-uppercase">Lista de preguntas</h2></div>
+
     @foreach($preguntas as $pregunta)
         <div class="row border rounded mb-2">
             <div class="col-3 mt-5">
@@ -23,11 +25,12 @@
         <hr style="color: #5bdcc6;">
 --}}
     @endforeach
+
     <div class="row paginacion d-flex justify-content-center">
        {{$preguntas->links()}}
     </div>
 
-
+    @if(isset($pregunta))
     <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -49,7 +52,9 @@
             </div>
         </div>
     </div>
-
+        @else
+        <p>No hay ninguna pregunta todavía! Se el primero en hacer una</p>
+    @endif
     <script>
         function sumarPunto(id) {
             $.ajax({
@@ -91,16 +96,16 @@
             });
         }
 
-        function anadirFav(id,usu) {
+        function anadirFav(id) {
             $.ajax({
                 method: "get",
                 url: '/favorito',
-                data:{id: id,usu: usu},
+                data:{id: id},
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function() {
-                   alert ("Añadido a favoritos");
+                success: function(texto) {
+                   alert (texto);
                 },
                 error: function (data) {
                     console.log("Error");

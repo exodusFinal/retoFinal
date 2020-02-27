@@ -16,9 +16,7 @@
     <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{asset('img/logo_ico.ico')}}" type="image/x-icon" sizes="16x16">
 </head>
-<body style="min-height: 100vh;
-  position: relative;
-  margin: 0;">
+<body style="background-image:url({{url('img/bg.jpg')}})">
 @if(Auth::check())
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-2" href="{{route('index')}}"><img src="{{asset('img/logo.png')}}" height="42"
@@ -31,7 +29,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item active ml-4">
                     <a class="nav-link" href="/index">Inicio </a>
                 </li>
                 <li class="nav-item">
@@ -47,7 +45,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid mt-4 "style="height: 500px">
+    <div class="container-fluid mt-4">
         <div class="row">
             <div class="btn-group mb-3 col-12 d-md-none" role="group" aria-label="Button group with nested dropdown">
                 <button type="button" class="btn btn-secondary"><a class="nav-item"
@@ -83,50 +81,42 @@
     </div>
 @else
     <div class="container-fluid">
-        @yield('content')
+        @yield('login')
     </div>
 @endif
 <!-- Footer -->
-{{--
 @if(Auth::check())
+<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white">
 
-<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white" style="position: relative; bottom: 0; width: 100vw;">
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" style="padding: 5px 7px; background-color: black; border-radius: 100px">
+                <i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1"
+               style="padding: 5px 6px; background-color: #0089ff; border-radius: 100px">
+                <i class="fab fa-twitter fa-lg" aria-hidden="true"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" style="padding: 5px 10px; background-color: darkblue; border-radius: 100px">
+                <i class="fab fa-facebook-f fa-lg" aria-hidden="true"> </i>
+            </a>
+        </li>
+    </ul>
+    <!-- Social buttons -->
+<hr>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <h5>Exodus</h5>
+    </div>
+    <!-- Copyright -->
 
-
-
-
-        <!-- Social buttons -->
-        <ul class="list-unstyled list-inline text-center">
-            <li class="list-inline-item">
-                <a class="btn-floating btn-tw mx-1"
-                   style="padding: 5px 7px; background-color: black; border-radius: 100px">
-                    <i class="fab fa-github fa-lg" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-tw mx-1"
-                   style="padding: 5px 6px; background-color: #0089ff; border-radius: 100px">
-                    <i class="fab fa-twitter fa-lg" aria-hidden="true"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-fb mx-1"
-                   style="padding: 5px 10px; background-color: darkblue; border-radius: 100px">
-                    <i class="fab fa-facebook-f fa-lg" aria-hidden="true"> </i>
-                </a>
-            </li>
-        </ul>
-        <!-- Social buttons -->
-        <hr>
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <h5>Exodus</h5>
-        </div>
-        <!-- Copyright -->
-
-    </footer>
+</footer>
 @endif
---}}
 <!-- Footer -->
 </body>
 </html>

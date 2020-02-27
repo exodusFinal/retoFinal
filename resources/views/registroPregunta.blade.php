@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Crear Pregunta</h1>
+    <h2 class="text-center">Crear Pregunta</h2>
 
             <form action="{{route('pregunta.store')}}" method="POST">
                 @csrf
