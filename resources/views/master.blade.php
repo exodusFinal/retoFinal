@@ -8,7 +8,7 @@
     <title>Exodus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
@@ -37,7 +37,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-link">{{Auth::id()}}</a></li>
+                <li><a class="nav-link">{{Auth::user()->name}}</a></li>
                 <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
             </ul>
         </div>
@@ -74,11 +74,10 @@
                     <li class="list-group-item">
                         <a class="nav-item" href="/pregunta/puntos">Mejor valoradas</a>
                     </li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+
                 </ul>
             </div>
-            <div class="border col-12 col-md-9 ">
+            <div class="col-12 col-md-9">
                 @yield('content')
 
             </div>
