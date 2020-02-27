@@ -47,7 +47,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid mt-4 "style="height: 500px">
+    <div class="container mt-4 "style="height: 500px">
         <div class="row">
             <div class="btn-group mb-3 col-12 d-md-none" role="group" aria-label="Button group with nested dropdown">
                 <button type="button" class="btn btn-secondary"><a class="nav-item"
@@ -82,7 +82,7 @@
         </div>
     </div>
 @else
-    <div class="container-fluid">
+    <div class="container">
         @yield('content')
     </div>
 @endif
