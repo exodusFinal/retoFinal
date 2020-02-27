@@ -1,16 +1,16 @@
 @extends('master')
 
 @section('content')
+
     <div class="row my-4">
-        <div class="col-4">
-            <h1>{{$pregunta->titulo}}</h1>
-        </div>
-        <div class=" mt-1 col-8">
+        <div class=" mt-1 col-4">
             <button class="mt-1 btn btn-primary" disabled>{{$pregunta->puntuacionPregu}} puntos</button>
+        </div>
+        <div class="col-8">
+            <h2>{{$pregunta->titulo}}</h2>
         </div>
 
     </div>
-
 
     <p>{{$pregunta->descripcion}}</p>
 
@@ -31,16 +31,16 @@
         <input type="submit" class="btn btn-primary" value="Enviar">
     </form>
     <br>
-    <h2>Respuestas</h2>
+    <h3 class="text-center">Respuestas</h3>
     <hr>
 
     @foreach($pregunta->respuesta as $resp)
         <form method="get">
             <div class="row">
-                <div class="col-2 mt-3">
+                <div class="col mt-3">
                     <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$resp->id}})">Puntos<span class="badge badge-light ml-1" id="puntosumR{{$resp->id}}">{{$resp->puntosResp}}</span></button>
                 </div>
-                <div class="col-10">
+                <div class="col">
                             <p>{{$resp->respuesta}}</p>
                             @if($resp->adjunto != null)
                                 <a href="{{route('archivo.descargar', $resp->id)}}">Descargar archivo</a>
