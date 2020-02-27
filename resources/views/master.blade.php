@@ -16,7 +16,9 @@
     <script src="https://kit.fontawesome.com/1de908b2dd.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{asset('img/logo_ico.ico')}}" type="image/x-icon" sizes="16x16">
 </head>
-<body>
+<body style="min-height: 100vh;
+  position: relative;
+  margin: 0;">
 @if(Auth::check())
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-2" href="{{route('index')}}"><img src="{{asset('img/logo.png')}}" height="42"
@@ -86,7 +88,8 @@
 @endif
 <!-- Footer -->
 @if(Auth::check())
-<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white">
+<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white" style="position: absolute;
+  bottom: -15; width: 100vw;">
 
     <!-- Social buttons -->
     <ul class="list-unstyled list-inline text-center">
