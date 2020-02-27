@@ -69,6 +69,6 @@ class UserController extends Controller
     $usuario->save();
 
         return redirect()->route('perfil');
-        
+
     }
 }

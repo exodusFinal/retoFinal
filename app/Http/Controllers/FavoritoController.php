@@ -40,13 +40,21 @@ class FavoritoController extends Controller
     public function store(Request $request)
     {
         //
+        $existeFavorito = Favorito::where('user_id', request('usu'))->where('pregunta_id', request('id'))->get()->first();
 
-        $favorito = new Favorito();
+        if ($existeFavorito == null || $existeFavorito.count() == 0){
+            $favorito = new Favorito();
 
-        $favorito->user_id = request('usu');
-        $favorito->pregunta_id = request('id');
+            $favorito->user_id = request('usu');
+            $favorito->pregunta_id = request('id');
 
-        $favorito->save();
+            $favorito->save();
+
+        }else{
+            Favorito::destroy($existeFavorito->id);
+        }
+
+
 
         return redirect()->route('index');
 
