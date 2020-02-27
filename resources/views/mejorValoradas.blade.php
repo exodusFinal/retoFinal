@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-12"> <h1>Mejor Valoradas</h1></div>
+    @if(isset($preguntas))
     @foreach($preguntas as $pregunta)
         <div class="row">
             <div class="col-2 mt-3">
@@ -20,9 +21,9 @@
             </div>
         </div>
     @endforeach
+    @endif
 
-
-
+    @if(isset($pregunta))
     <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -44,6 +45,9 @@
             </div>
         </div>
     </div>
+    @else
+        <p>No hay ninguna pregunta todavía! Se el primero en hacer una</p>
+    @endif
 
     <script>
         function sumarPunto(id) {
@@ -86,16 +90,16 @@
             });
         }
 
-        function anadirFav(id,usu) {
+        function anadirFav(id) {
             $.ajax({
                 method: "get",
                 url: '/favorito',
-                data:{id: id,usu: usu},
+                data:{id: id},
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function() {
-                    alert ("Añadido a favoritos");
+                success: function(texto) {
+                    alert (texto);
                 },
                 error: function (data) {
                     console.log("Error");
