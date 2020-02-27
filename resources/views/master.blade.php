@@ -37,7 +37,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-link">{{Auth::id()}}</a></li>
+                <li><a class="nav-link">{{Auth::user()->name}}</a></li>
                 <li><a class="nav-link" href="{{route('cerrarSesion')}}">Log Out</a></li>
             </ul>
         </div>
@@ -74,8 +74,7 @@
                     <li class="list-group-item">
                         <a class="nav-item" href="/pregunta/puntos">Mejor valoradas</a>
                     </li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+
                 </ul>
             </div>
             <div class="col-12 col-md-9">
