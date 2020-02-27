@@ -39,7 +39,6 @@ class FavoritoController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $existeFavorito = Favorito::where('user_id', Auth::id())->where('pregunta_id', request('id'))->get()->first();
 
         if ($existeFavorito == null){
@@ -54,8 +53,6 @@ class FavoritoController extends Controller
             Favorito::destroy($existeFavorito->id);
             return 'Se ha eliminado con exito';
         }
-
-
     }
 
     /**
