@@ -31,7 +31,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active ml-4">
+                <li class="nav-item active">
                     <a class="nav-link" href="/index">Inicio </a>
                 </li>
                 <li class="nav-item">
@@ -47,7 +47,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid mt-4">
+    <div class="container-fluid mt-4 "style="height: 500px">
         <div class="row">
             <div class="btn-group mb-3 col-12 d-md-none" role="group" aria-label="Button group with nested dropdown">
                 <button type="button" class="btn btn-secondary"><a class="nav-item"
@@ -87,39 +87,46 @@
     </div>
 @endif
 <!-- Footer -->
+{{--
 @if(Auth::check())
-<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white" style="position: absolute;
-  bottom: -15; width: 100vw;">
 
-    <!-- Social buttons -->
-    <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1" style="padding: 5px 7px; background-color: black; border-radius: 100px">
-                <i class="fab fa-github fa-lg" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1"
-               style="padding: 5px 6px; background-color: #0089ff; border-radius: 100px">
-                <i class="fab fa-twitter fa-lg" aria-hidden="true"> </i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1" style="padding: 5px 10px; background-color: darkblue; border-radius: 100px">
-                <i class="fab fa-facebook-f fa-lg" aria-hidden="true"> </i>
-            </a>
-        </li>
-    </ul>
-    <!-- Social buttons -->
-<hr>
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <h5>Exodus</h5>
-    </div>
-    <!-- Copyright -->
+<footer class="mt-2 page-footer font-small stylish-color-dark pt-4 bg-dark text-white" style="position: relative; bottom: 0; width: 100vw;">
 
-</footer>
+
+
+
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1"
+                   style="padding: 5px 7px; background-color: black; border-radius: 100px">
+                    <i class="fab fa-github fa-lg" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1"
+                   style="padding: 5px 6px; background-color: #0089ff; border-radius: 100px">
+                    <i class="fab fa-twitter fa-lg" aria-hidden="true"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1"
+                   style="padding: 5px 10px; background-color: darkblue; border-radius: 100px">
+                    <i class="fab fa-facebook-f fa-lg" aria-hidden="true"> </i>
+                </a>
+            </li>
+        </ul>
+        <!-- Social buttons -->
+        <hr>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <h5>Exodus</h5>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 @endif
+--}}
 <!-- Footer -->
 </body>
 </html>
