@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Mejor Valoradas</h1></div>
+    <div class="col-12 text-center"> <h2>Mejor Valoradas</h2></div>
     @if(isset($preguntas))
     @foreach($preguntas as $pregunta)
         <div class="row">
