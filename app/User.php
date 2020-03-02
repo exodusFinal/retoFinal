@@ -50,9 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\PreguntasUsers');
     }
-    public function Respuestas_Users()
+    public function RespuestasUsers()
     {
-        return $this->hasMany('App\Respuestas_Users');
+        return $this->hasMany('App\RespuestasUsers');
     }
 
 }

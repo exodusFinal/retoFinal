@@ -3,19 +3,28 @@
 @section('content')
     <div class="  text-center"><h2 class="text-center">Perfil</h2></div>
     <div class="cliente  border-secondary form-group ">
-        <form action="{{route('perfil.update', $users->id)}}" enctype="multipart/form-data" method="post">
-            @csrf
+        @if($users->id == \Illuminate\Support\Facades\Auth::id())
+            <form action="{{route('perfil.update', $users->id)}}" enctype="multipart/form-data" method="post">
+                @csrf
 
+                <div class="mt-1  text-center">
+                    <label>
+                        <img class="card-img-top" src="images/{{$users->foto}}" style="width: 50% " alt="Card image cap">
+                        <input name="image" type="file" hidden>
+                    </label>
+                </div>
+                <div class="mt-1 text-center">
+                    <input type="submit" class="btn btn-primary" value="Cambiar">
+                </div>
+            </form>
+        @else
             <div class="mt-1  text-center">
                 <label>
                     <img class="card-img-top" src="images/{{$users->foto}}" style="width: 50% " alt="Card image cap">
-                    <input name="image" type="file" hidden>
                 </label>
             </div>
-            <div class="mt-1 text-center">
-                <input type="submit" class="btn btn-primary" value="Cambiar">
-            </div>
-        </form>
+        @endif
+
         <div class="row">
             <div class="m-1 col">
                 <label for="titulo">Nick:</label>
