@@ -26,9 +26,10 @@ class Pregunta extends Model
     public function scopeTitulo($query,$titulo){
         if($titulo!=null)
 
-            return $query->Where('titulo','=', "$titulo");
+            return $query->Where('titulo','LIKE', "%$titulo%");
 
     }
+
     public function scopeTema_id($query,$tema_id){
         if($tema_id!=null)
 
