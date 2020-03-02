@@ -44,6 +44,7 @@
             </ul>
             <form class="form-inline mr-5" action="/index" method="get">
                 <select class="form-control" name="tema_id">
+                    <option value="">--</option>
                     @foreach(\App\Tema::all() as $tema)
                         <option value="{{$tema->id}}">{{$tema->nombreTema}}</option>
                     @endforeach
