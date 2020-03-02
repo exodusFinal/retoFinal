@@ -54,6 +54,18 @@ class UserController extends Controller
 
     }
 
+    public function find($id)
+    {
+        //
+
+        $usuario  = $id;
+        $users = User::find($usuario);
+
+
+        return view('perfil',compact('users'));
+
+    }
+
     public function update(Request $request, $id){
 
         $usuario = User::find($id);
