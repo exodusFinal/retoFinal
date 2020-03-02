@@ -14,4 +14,9 @@ class Respuesta extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function RespuestasUsers()
+    {
+        return $this->hasMany('App\RespuestasUsers');
+    }
 }

@@ -18,18 +18,34 @@ class PreguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 
-        /*$preguntas = Pregunta::paginate(5);
+        /*
+         *  $preguntas = Pregunta::paginate(5);+
+            $preguntas = Pregunta::orderBy('id','DESC')->paginate(5);
         */
-        $preguntas = Pregunta::orderBy('id','DESC')->paginate(5);
+
+
+
+     $titulo = $request->get('titulo');
+     $tema_id = $request->get('tema_id');
+
+       $preguntas = Pregunta::orderBy('id', 'DESC')
+            ->titulo($titulo)
+            ->tema_id($tema_id)
+            ->paginate(5);
+/*
+    $preguntas= DB::table('preguntas')
+            ->join('temas','preguntas.tema_id','=','temas.id')
+            ->select('preguntas.titulo','preguntas.descripcion','preguntas.puntuacionPregu','preguntas.user_id','preguntas.tema_id','temas.nombreTema')
+            ->get();*/
+
+
+
 
         return view('index',['preguntas' => $preguntas]);
-
-
-
     }
 
     /**
@@ -78,8 +94,10 @@ class PreguntaController extends Controller
     public function show($id)
     {
         $pregunta = Pregunta::find($id);
+        $usuario = User::find($pregunta->user_id);
         return view('detalleAnuncio',[
-            'pregunta' => $pregunta
+            'pregunta' => $pregunta,
+            'usuario' => $usuario
         ]);
         //
 
@@ -126,16 +144,18 @@ class PreguntaController extends Controller
         //
     }
 
-    public function orderByPuntos(){
+    public function orderByPuntos(Request $request){
 
-        $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')->get();
+        $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')
+            ->get();
 
         return view('mejorValoradas',compact('preguntas'));
     }
 
     public function misPreguntas($id){
 
-        $preguntas = Pregunta::all()->where('user_id','=',$id);
+        $preguntas = Pregunta::all()
+            ->where('user_id','=',$id);
 
         return view('misPreguntas',compact('preguntas'));
     }
@@ -146,7 +166,6 @@ class PreguntaController extends Controller
 
         $usuario = User::find($id);
 
-        $favUsu = $usuario->favorito;
 
         $preguntas = DB::table('preguntas')
             ->select('preguntas.*')

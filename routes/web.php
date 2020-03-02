@@ -25,8 +25,8 @@ Route::get('/index', 'PreguntaController@index')->name('index')->middleware('aut
 Route::get('/create/pregunta', 'PreguntaController@create')->name('pregunta.create')->middleware('auth');
 
 Route::post('/pregunta/store','PreguntaController@store')->name('pregunta.store')->middleware('auth');
-Route::get('/pregunta/update', 'PreguntaController@update')->name('pregunta.update')->middleware('auth');
-Route::get('/respuesta/update', 'RespuestaController@update')->name('respuesta.update')->middleware('auth');
+Route::get('/pregunta/update', 'PreguntasUsersController@store')->name('pregunta.update')->middleware('auth');
+Route::get('/respuesta/update', 'RespuestasUsersController@store')->name('respuesta.update')->middleware('auth');
 
 Route::get('/pregunta/misPreguntas/{id}', 'PreguntaController@misPreguntas')->name('pregunta.mispreguntas')->middleware('auth');
 Route::get('/pregunta/puntos', 'PreguntaController@orderByPuntos')->name('pregunta.puntos')->middleware('auth');
@@ -36,6 +36,7 @@ Route::get('/pregunta/favoritos/{id}', 'PreguntaController@favoritos')->name('pr
 
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
 Route::get('/perfil', 'UserController@show')->name('perfil')->middleware('auth');
+Route::get('/perfil/usuario/{id}', 'UserController@find')->name('perfil.usuario')->middleware('auth');
 Route::post('/usuario/update/{id}', 'UserController@update')->name('perfil.update')->middleware('auth');
 
 

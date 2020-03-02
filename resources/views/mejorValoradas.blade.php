@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Mejor Valoradas</h1></div>
+    <div class="col-12 text-center"> <h2>Mejor Valoradas</h2></div>
     @if(isset($preguntas))
     @foreach($preguntas as $pregunta)
         <div class="row">
@@ -12,8 +12,12 @@
             <div class="col-10">
                 <div class="card mt-3 mb-3" >
                     <div class="card-body">
-                        <h5 class="card-title">{{$pregunta->titulo}}</h5>
+                        <h5 class="card-title">{{$pregunta->titulo}} <span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->tema->nombreTema}}</span></h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
+                        <div class="row">
+                            <p class="col text-secondary"> Creador: {{$pregunta->user->nombre}}</p>
+                            <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                        </div>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>

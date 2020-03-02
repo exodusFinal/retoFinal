@@ -5,16 +5,21 @@
     <div class="col-12 text-center"> <h2 class="text-uppercase">Lista de preguntas</h2></div>
 
     @foreach($preguntas as $pregunta)
-        <div class="row border rounded mb-2">
+        <div class="row  mb-2">
             <div class="col-3 mt-5">
-                <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
-                <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1" id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
+                <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i id="estrella" class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
+                <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1 " id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
             <div class="col-9">
-                <div class=" mt-3 mb-3" >
+                <div class="card mt-3 mb-3" >
                     <div class="card-body">
-                        <h5  class="card-title font-weight-bold text-uppercase">{{$pregunta->titulo}}</h5>
+                        <h5  class="card-title font-weight-bold text-uppercase">{{$pregunta->titulo}} <span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->tema->nombreTema}}</span></h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
+                        <div class="row">
+                            <p class="col text-secondary"> Creador: {{$pregunta->user->nombre}}</p>
+                            <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                        </div>
+                        <p class="card-text"></p>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
@@ -106,6 +111,11 @@
                 },
                 success: function(texto) {
                    alert (texto);
+                   if(texto == "Se ha añadido a favoritos"){
+                       $(".fas:before").css('color', 'orange');
+                   }else{
+                       $(".fas:before").css('color', 'black');
+                   }
                 },
                 error: function (data) {
                     console.log("Error");
