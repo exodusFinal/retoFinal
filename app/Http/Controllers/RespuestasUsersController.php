@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Respuesta;
-use App\Respuestas_Users;
-use App\Http\Controllers\Controller;
+use App\RespuestasUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,7 +37,7 @@ class RespuestasUsersController extends Controller
      */
     public function store(Request $request)
     {
-        $existePuntos = Respuestas_Users::where('user_id', Auth::id())->where('respuesta_id', request('id'))->get()->first();
+        $existePuntos = RespuestasUsers::where('user_id', Auth::id())->where('respuesta_id', request('id'))->get()->first();
 
         if ($existePuntos == null){
             $respuesta = Respuesta::find(request('id'));
@@ -47,14 +46,14 @@ class RespuestasUsersController extends Controller
 
             $respuesta->save();
 
-            $puntos = new Respuestas_Users();
+            $puntos = new RespuestasUsers();
             $puntos->user_id = Auth::id();
             $puntos->respuesta_id = request('id');
             $puntos->save();
             return $respuesta;
 
         }else{
-            Respuestas_Users::destroy($existePuntos->id);
+            RespuestasUsers::destroy($existePuntos->id);
             $respuesta = Respuesta::find(request('id'));
             $respuesta->puntosResp = $respuesta->puntosResp -1;
             $respuesta->save();
@@ -65,10 +64,10 @@ class RespuestasUsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Respuestas_Users  $respuestas_Users
+     * @param  \App\RespuestasUsers  $respuestasUsers
      * @return \Illuminate\Http\Response
      */
-    public function show(Respuestas_Users $respuestas_Users)
+    public function show(RespuestasUsers $respuestasUsers)
     {
         //
     }
@@ -76,10 +75,10 @@ class RespuestasUsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Respuestas_Users  $respuestas_Users
+     * @param  \App\RespuestasUsers  $respuestasUsers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Respuestas_Users $respuestas_Users)
+    public function edit(RespuestasUsers $respuestasUsers)
     {
         //
     }
@@ -88,10 +87,10 @@ class RespuestasUsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Respuestas_Users  $respuestas_Users
+     * @param  \App\RespuestasUsers  $respuestasUsers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Respuestas_Users $respuestas_Users)
+    public function update(Request $request, RespuestasUsers $respuestasUsers)
     {
         //
     }
@@ -99,10 +98,10 @@ class RespuestasUsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Respuestas_Users  $respuestas_Users
+     * @param  \App\RespuestasUsers  $respuestasUsers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Respuestas_Users $respuestas_Users)
+    public function destroy(RespuestasUsers $respuestasUsers)
     {
         //
     }

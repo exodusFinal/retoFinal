@@ -15,8 +15,8 @@ class Respuesta extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function respuestas_users()
+    public function RespuestasUsers()
     {
-        return $this->hasMany('App\respuestas_users');
+        return $this->hasMany('App\RespuestasUsers');
     }
 }
