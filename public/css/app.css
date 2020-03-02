@@ -10894,3 +10894,13 @@ a.text-dark:focus {
   border-color: #38ab97 !important;
 }
 
+.btn-outline-primary:hover {
+  background-color: #38ab97;
+  border-color: #38ab97;
+}
+
+.btn-outline-primary {
+  border-color: #38ab97;
+  color: #38ab97;
+}
+

@@ -20,7 +20,7 @@
         @else
             <div class="mt-1  text-center">
                 <label>
-                    <img class="card-img-top" src="images/{{$users->foto}}" style="width: 50% " alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('images/'.$users->foto) }}" style="width: 50% " alt="Card image cap">
                 </label>
             </div>
         @endif
