@@ -1,7 +1,7 @@
-@extends('master')
+@extends('master_login')
 
-@section('content')
-    <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 40px; width: 100%;">
+@section('login')
+    <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 40px; width: 100%;opacity:0.9;">
         <div class="d-flex justify-content-center align-items-center card signup bg-light">
             <h3 class="text-center">Registrarse</h3>
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">

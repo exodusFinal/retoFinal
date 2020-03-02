@@ -12,11 +12,12 @@
             <div class="col-10">
                 <div class="card mt-3 mb-3" >
                     <div class="card-body">
-                        <h5 class="card-title">{{$pregunta->titulo}}</h5>
+                        <h5 class="card-title">{{$pregunta->titulo}} <span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->tema->nombreTema}}</span></h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
-                        <p class="card-text text-secondary">Tema: {{$pregunta->tema->nombreTema}} Creador: {{$pregunta->user->nombre}}</p>
-                        <p class="card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} </p>
-                        <p class="card-text text-secondary">Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                        <div class="row">
+                            <p class="col text-secondary"> Creador: {{$pregunta->user->nombre}}</p>
+                            <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                        </div>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
