@@ -1,1 +1,14 @@
-@import "variables";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.btn-primary{
+  background-color: #5bdcc6 !important;
+  border-color: #5bdcc6 !important;
+}
+.btn-primary:hover{
+  background-color: #38ab97 !important;
+  border-color: #38ab97 !important;
+}

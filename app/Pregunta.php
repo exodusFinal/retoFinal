@@ -23,6 +23,11 @@ class Pregunta extends Model
         return $this->hasMany('App\Favorito');
     }
 
+    public function preguntasusers()
+    {
+        return $this->hasMany('App\PreguntasUsers');
+    }
+
     public function scopeTitulo($query,$titulo){
         if($titulo!=null)
 
