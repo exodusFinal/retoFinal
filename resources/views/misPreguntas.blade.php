@@ -15,6 +15,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$pregunta->titulo}}</h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
+                        <p class="card-text text-secondary">Tema: {{$pregunta->tema->nombreTema}} Creador: {{$pregunta->user->nombre}}</p>
+                        <p class="card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} </p>
+                        <p class="card-text text-secondary">Hora: {{substr($pregunta->created_at,10,-3)}} </p>
                         <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
                     </div>
                 </div>
