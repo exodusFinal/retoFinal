@@ -18,18 +18,24 @@ class PreguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 
         /*$preguntas = Pregunta::paginate(5);
         */
+
         $preguntas = Pregunta::orderBy('id','DESC')->paginate(5);
 
+        $titulo = $request->get('titulo');
+        $tema_id = $request->get('tema_id');
+
+       $preguntas = Pregunta::orderBy('id', 'DESC')
+            ->titulo($titulo)
+            ->tema_id($tema_id)
+            ->paginate(5);
+
         return view('index',['preguntas' => $preguntas]);
-
-
-
     }
 
     /**
