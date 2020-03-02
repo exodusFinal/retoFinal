@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="col-12"> <h1>Mis Preguntas</h1></div>
+    <div class="col-12 text-center"> <h2>Mis Preguntas</h2></div>
 
     @foreach($preguntas as $pregunta)
 
