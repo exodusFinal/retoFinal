@@ -10,9 +10,17 @@
             <h2>{{$pregunta->titulo}}</h2>
         </div>
 
-    </div>
 
+
+    </div>
+    <div class="row">
     <p>{{$pregunta->descripcion}}</p>
+
+    <div class="col offset-10">
+        <p>Escrito por:</p><img class="rounded" src="{{ asset('images/'.$usuario->foto) }}" style="width: 15%;"><a href="{{route('perfil.usuario', $usuario->id)}}"><p>{{$usuario->nombre}} {{$usuario->apellido}}</p></a>
+    </div>
+</div>
+
 
     <hr>
     <form action="{{route('respuesta.añadir', $pregunta->id)}}" enctype="multipart/form-data" method="post">
