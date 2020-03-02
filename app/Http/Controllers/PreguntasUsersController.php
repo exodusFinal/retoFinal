@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Pregunta;
-use App\Preguntas_Users;
-use App\Http\Controllers\Controller;
+use App\PreguntasUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class PreguntasUsersController extends Controller
 {
@@ -39,7 +37,7 @@ class PreguntasUsersController extends Controller
      */
     public function store(Request $request)
     {
-        $existePuntos = Preguntas_Users::where('user_id', Auth::id())->where('pregunta_id', request('id'))->get()->first();
+        $existePuntos = PreguntasUsers::where('user_id', Auth::id())->where('pregunta_id', request('id'))->get()->first();
 
         if ($existePuntos == null){
             $pregunta = Pregunta::find(request('id'));
@@ -48,14 +46,14 @@ class PreguntasUsersController extends Controller
 
             $pregunta->save();
 
-            $puntos = new Preguntas_Users();
+            $puntos = new PreguntasUsers();
             $puntos->user_id = Auth::id();
             $puntos->pregunta_id = request('id');
             $puntos->save();
             return $pregunta;
 
         }else{
-            Preguntas_Users::destroy($existePuntos->id);
+            PreguntasUsers::destroy($existePuntos->id);
             $pregunta = Pregunta::find(request('id'));
             $pregunta->puntuacionPregu = $pregunta->puntuacionPregu -1;
             $pregunta->save();
@@ -66,10 +64,10 @@ class PreguntasUsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Preguntas_Users  $preguntas_users
+     * @param  \App\PreguntasUsers  $preguntasUsers
      * @return \Illuminate\Http\Response
      */
-    public function show(Preguntas_Users $preguntas_users)
+    public function show(PreguntasUsers $preguntasUsers)
     {
         //
     }
@@ -77,10 +75,10 @@ class PreguntasUsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Preguntas_Users  $preguntas_users
+     * @param  \App\PreguntasUsers  $preguntasUsers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Preguntas_Users $preguntas_users)
+    public function edit(PreguntasUsers $preguntasUsers)
     {
         //
     }
@@ -89,10 +87,10 @@ class PreguntasUsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Preguntas_Users  $preguntas_users
+     * @param  \App\PreguntasUsers  $preguntasUsers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Preguntas_Users $preguntas_users)
+    public function update(Request $request, PreguntasUsers $preguntasUsers)
     {
         //
     }
@@ -100,10 +98,10 @@ class PreguntasUsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Preguntas_Users  $preguntas_users
+     * @param  \App\PreguntasUsers  $preguntasUsers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Preguntas_Users $preguntas_users)
+    public function destroy(PreguntasUsers $preguntasUsers)
     {
         //
     }

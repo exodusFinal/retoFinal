@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Preguntas_Users extends Model
+class PreguntasUsers extends Model
 {
     public function user()
     {
