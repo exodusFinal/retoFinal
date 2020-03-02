@@ -19,7 +19,7 @@
                     <div class="m-1">
                         <label for="tema">Tema</label>
 
-                        <select class="custom-select" name="tema">
+                        <select class="custom-select" name="tema" REQUIRED>
                             <option disabled selected value="">--</option>
                             @foreach($temas as $tema)
                                 <option value="{{$tema->id}}">{{$tema->nombreTema}}</option>
