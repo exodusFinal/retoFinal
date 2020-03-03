@@ -65,8 +65,8 @@
                         <a href="{{route('archivo.descargar', $resp->id)}}">Descargar archivo</a>
                     @endif
                 </div>
-                <div class="col-2">
-                    <a class=" d-none d-md-block" href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
+                <div class="col-2 d-none d-md-block">
+                    <a href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
                 </div>
             </div>
             <hr>
