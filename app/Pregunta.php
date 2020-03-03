@@ -16,7 +16,7 @@ class Pregunta extends Model
     }
     public function respuesta()
     {
-        return $this->hasMany('App\Respuesta');
+        return $this->hasMany('App\Respuesta')->orderBy('puntosResp', 'DESC');
     }
     public function favorito()
     {
