@@ -5,7 +5,7 @@
     @if(isset($preguntas))
     @foreach($preguntas as $pregunta)
         <div class="row">
-            <div class="col-2 mt-3">
+            <div class="col-3 mt-3">
                 @if(\App\Favorito::where('pregunta_id', $pregunta->id)->where('user_id', \Illuminate\Support\Facades\Auth::id())->value('pregunta_id') == $pregunta->id)
                     <button type="button" class="btn btn-default"  onclick="anadirFav({{$pregunta->id}})"><i id="estrella{{$pregunta->id}}" class="star2"  id="fav{{$pregunta->id}}"></i></button>
                 @else
@@ -13,7 +13,7 @@
                 @endif
                     <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1" id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
-            <div class="col-10">
+            <div class="col-9">
                 <div class="card mt-3 mb-3" >
                     <div class="card-body">
                         <h5 class="card-title">{{$pregunta->titulo}} <span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->tema->nombreTema}}</span></h5>
