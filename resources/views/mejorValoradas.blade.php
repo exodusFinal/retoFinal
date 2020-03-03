@@ -25,7 +25,12 @@
             </div>
         </div>
     @endforeach
+    <div class="row paginacion d-flex justify-content-center">
+        {{$preguntas->links()}}
+    </div>
     @endif
+
+
 
     @if(isset($pregunta))
     <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">

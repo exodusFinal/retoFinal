@@ -147,15 +147,16 @@ class PreguntaController extends Controller
     public function orderByPuntos(Request $request){
 
         $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')
-            ->get();
+            ->paginate(5);
 
         return view('mejorValoradas',compact('preguntas'));
     }
 
     public function misPreguntas($id){
 
-        $preguntas = Pregunta::all()
-            ->where('user_id','=',$id);
+        $preguntas = Pregunta::orderBy('id','DESC')
+            ->where('user_id','=',$id)
+            ->paginate(3);
 
         return view('misPreguntas',compact('preguntas'));
     }
@@ -166,13 +167,13 @@ class PreguntaController extends Controller
 
         $usuario = User::find($id);
 
-
         $preguntas = DB::table('preguntas')
-            ->select('preguntas.*')
+            ->select('preguntas.*','temas.nombreTema')
             ->join('favoritos','preguntas.id','=','favoritos.pregunta_id')
+            ->join('temas','preguntas.tema_id','=','temas.id')
             ->where('favoritos.user_id','=',$id)
             ->orderBy('preguntas.id','DESC')
-            ->get();
+            ->paginate(5);
 
         return view('misFavoritos',compact('preguntas'));
 
