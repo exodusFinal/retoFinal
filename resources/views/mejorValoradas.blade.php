@@ -113,6 +113,13 @@
                 },
                 success: function(texto) {
                     alert (texto);
+                    if(texto == "Se ha añadido a favoritos"){
+                        $("#estrella"+id).removeClass('star');
+                        $("#estrella"+id).addClass('star2')
+                    }else{
+                        $("#estrella"+id).removeClass('star2');
+                        $("#estrella"+id).addClass('star')
+                    }
                 },
                 error: function (data) {
                     console.log("Error");
