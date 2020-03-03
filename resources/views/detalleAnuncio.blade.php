@@ -54,7 +54,7 @@
         <form method="get">
             <div class="row">
 
-                <div class="col-2 mt-3">
+                <div class="col-2 mt-3 mr-3">
                     <button type="button" class="btn btn-primary" onclick="sumarPunto({{$resp->id}})">Puntos<span
                                 class="badge badge-light ml-1" id="puntosumR{{$resp->id}}">{{$resp->puntosResp}}</span>
                     </button>
@@ -65,8 +65,8 @@
                         <a href="{{route('archivo.descargar', $resp->id)}}">Descargar archivo</a>
                     @endif
                 </div>
-                <div class="col-2">
-                    <a class=" d-none d-md-block" href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
+                <div class="col-2 d-none d-md-block">
+                    <a href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
                 </div>
             </div>
             <hr>
