@@ -2,27 +2,30 @@
 
 @section('content')
     <div class="col-12 text-center"><h2>Mis Favoritos</h2></div>
-    @foreach($preguntas as $pregunta)
-        <div class="row" id="pregunta{{$pregunta->id}}">
-            <div class="col-2 mt-3">
-                <button type="button" class="btn btn-default"
-                        onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})">
-                    <i class="fas fa-star" id="fav{{$pregunta->id}}"></i>
-                </button>
-                <button type="button" class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span
-                            class="badge badge-light ml-1"
-                            id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
-            </div>
-            <div class="col-10">
-                <div class="card mt-3 mb-3">
-                    <div class="card-body">
+        @foreach($preguntas as $pregunta)
+            <div class="row" id="pregunta{{$pregunta->id}}">
+                <div class="col-2 mt-3">
+                    @if(\App\Favorito::where('pregunta_id', $pregunta->id)->where('user_id', \Illuminate\Support\Facades\Auth::id())->value('pregunta_id') == $pregunta->id)
+                        <button type="button" class="btn btn-default"  onclick="anadirFav({{$pregunta->id}})"><i id="estrella{{$pregunta->id}}" class="star2"  id="fav{{$pregunta->id}}"></i></button>
+                    @else
+                        <button type="button" class="btn btn-default"  onclick="anadirFav({{$pregunta->id}})"><i id="estrella{{$pregunta->id}}" class="star"  id="fav{{$pregunta->id}}"></i></button>
+                    @endif
+                    <button type="button" class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span
+                                class="badge badge-light ml-1"
+                                id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
+                </div>
+                <div class="col-10">
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body">
                         <h5 class="card-title">{{$pregunta->titulo}}<span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->nombreTema}}</span></h5>
-
-                        <p class="card-text">{{$pregunta->descripcion}}</p>
-                        <div class="row">
-                            <p class="col text-secondary"></p>
-                            <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} /
-                                Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                            <p class="card-text">{{$pregunta->descripcion}}</p>
+                            <div class="row">
+                                <p class="col text-secondary"></p>
+                                <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
+                            </div>
+                            <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver
+                                anuncio</a>{{-- De $pregunta a $pregunta->id --}}
+                            <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                         </div>
                         <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver
                             anuncio</a>{{-- De $pregunta a $pregunta->id --}}
