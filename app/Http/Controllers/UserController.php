@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pregunta;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,9 +49,9 @@ class UserController extends Controller
 
         $usuario  = Auth::id();
         $users = User::find($usuario);
+        $puntos = Pregunta::where('user_id','=', $usuario)->sum('puntuacionPregu');
 
-
-        return view('perfil',compact('users'));
+        return view('perfil',compact('users','puntos'));
 
     }
 
@@ -60,9 +61,9 @@ class UserController extends Controller
 
         $usuario  = $id;
         $users = User::find($usuario);
+        $puntos = Pregunta::where('user_id','=', $usuario)->sum('puntuacionPregu');
 
-
-        return view('perfil',compact('users'));
+        return view('perfil',compact('users', 'puntos'));
 
     }
 

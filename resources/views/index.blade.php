@@ -20,7 +20,7 @@
                             <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
                         </div>
                         <p class="card-text"></p>
-                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
+                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver pregunta</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
