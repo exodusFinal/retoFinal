@@ -13,7 +13,7 @@ class CreateRespuestasUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('respuestas__users', function (Blueprint $table) {
+        Schema::create('respuestas_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('respuesta_id');
             $table->unsignedBigInteger('user_id');
@@ -28,6 +28,6 @@ class CreateRespuestasUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('respuestas__users');
+        Schema::dropIfExists('respuestas_users');
     }
 }

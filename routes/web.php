@@ -36,6 +36,7 @@ Route::get('/pregunta/favoritos/{id}', 'PreguntaController@favoritos')->name('pr
 
 Route::get('/cerrarSesion', 'UserController@cerrarSesion')->name('cerrarSesion')->middleware('auth');
 Route::get('/perfil', 'UserController@show')->name('perfil')->middleware('auth');
+Route::get('/perfil/usuario/{id}', 'UserController@find')->name('perfil.usuario')->middleware('auth');
 Route::post('/usuario/update/{id}', 'UserController@update')->name('perfil.update')->middleware('auth');
 
 

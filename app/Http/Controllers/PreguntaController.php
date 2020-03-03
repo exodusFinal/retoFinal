@@ -94,8 +94,10 @@ class PreguntaController extends Controller
     public function show($id)
     {
         $pregunta = Pregunta::find($id);
+        $usuario = User::find($pregunta->user_id);
         return view('detalleAnuncio',[
-            'pregunta' => $pregunta
+            'pregunta' => $pregunta,
+            'usuario' => $usuario
         ]);
         //
 
