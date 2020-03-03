@@ -7,7 +7,7 @@
     @foreach($preguntas as $pregunta)
         <div class="row  mb-2">
             <div class="col-3 mt-5">
-                <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i id="estrella" class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
+                <button type="button" class="btn btn-default" id="fernando" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i id="estrella" class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
                 <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1 " id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
             <div class="col-9">
@@ -112,9 +112,9 @@
                 success: function(texto) {
                    alert (texto);
                    if(texto == "Se ha añadido a favoritos"){
-                       $(".fas:before").css('color', 'orange');
+                       $("#fernando").css('color','red');
                    }else{
-                       $(".fas:before").css('color', 'black');
+                       $("#fernando").css('color','blue');
                    }
                 },
                 error: function (data) {
