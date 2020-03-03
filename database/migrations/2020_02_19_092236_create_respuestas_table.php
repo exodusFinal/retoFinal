@@ -15,7 +15,7 @@ class CreateRespuestasTable extends Migration
     {
         Schema::create('respuestas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('respuesta');
+            $table->text('respuesta');
             $table->integer('puntosResp');
             $table->string('adjunto')->nullable();
             $table->unsignedBigInteger('pregunta_id');
