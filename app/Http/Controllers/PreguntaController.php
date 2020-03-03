@@ -147,8 +147,7 @@ class PreguntaController extends Controller
     public function orderByPuntos(Request $request){
 
         $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')
-            ->get()
-            ->paginate(5);
+            ->get();
 
         return view('mejorValoradas',compact('preguntas'));
     }
