@@ -44,7 +44,7 @@
             </ul>
             <form class="form-inline mr-5" action="/index" method="get">
                 <select class="form-control" name="tema_id">
-                    <option value="">--</option>
+                    <option value="">Temas</option>
                     @foreach(\App\Tema::all() as $tema)
                         <option value="{{$tema->id}}">{{$tema->nombreTema}}</option>
                     @endforeach
@@ -61,13 +61,13 @@
     <div class="container mt-4 "style="height: 500px">
         <div class="row">
             <div class="btn-group mb-3 col-12 d-md-none" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-secondary"><a class="nav-item"
+                <button type="button" class="btn btn-primary"><a class="nav-item text-white"
                                                                    href="/pregunta/misPreguntas/{{Auth::id()}}">Mis
                         Preguntas</a></button>
-                <button type="button" class="btn btn-secondary"><a class="nav-item"
+                <button type="button" class="btn btn-primary text-black-50"><a class="nav-item text-white"
                                                                    href="/pregunta/favoritos/{{Auth::id()}}">Favoritos</a>
                 </button>
-                <button type="button" class="btn btn-secondary"><a class="nav-item" href="/pregunta/puntos">Mejor
+                <button type="button" class="btn btn-primary text-black-50"><a class="nav-item text-white" href="/pregunta/puntos">Mejor
                         valoradas</a>
                 </button>
             </div>
