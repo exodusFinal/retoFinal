@@ -54,7 +54,7 @@
         <form method="get">
             <div class="row">
 
-                <div class="col-2 mt-3">
+                <div class="col-2 mt-3 mr-3">
                     <button type="button" class="btn btn-primary" onclick="sumarPunto({{$resp->id}})">Puntos<span
                                 class="badge badge-light ml-1" id="puntosumR{{$resp->id}}">{{$resp->puntosResp}}</span>
                     </button>
