@@ -26,9 +26,6 @@
                 </div>
             </div>
         </div>
-{{--
-        <hr style="color: #5bdcc6;">
---}}
     @endforeach
 
     <div class="row paginacion d-flex justify-content-center">
