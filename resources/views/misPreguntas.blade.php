@@ -30,9 +30,14 @@
         </div>
 
     @endforeach
+    <div class="row paginacion d-flex justify-content-center">
+        {{$preguntas->links()}}
+    </div>
     @if(!isset($pregunta))
+
         <p>Todavía no has hecho ninguna pregunta! Haz tu primera</p>
     @endif
+
 
     <script>
         function sumarPunto(id) {

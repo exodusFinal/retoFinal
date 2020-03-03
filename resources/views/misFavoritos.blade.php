@@ -17,7 +17,7 @@
                 <div class="col-10">
                     <div class="card mt-3 mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">{{$pregunta->titulo}}</h5>
+                        <h5 class="card-title">{{$pregunta->titulo}}<span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->nombreTema}}</span></h5>
                             <p class="card-text">{{$pregunta->descripcion}}</p>
                             <div class="row">
                                 <p class="col text-secondary"></p>
@@ -27,12 +27,18 @@
                                 anuncio</a>{{-- De $pregunta a $pregunta->id --}}
                             <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                         </div>
+                        <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver
+                            anuncio</a>{{-- De $pregunta a $pregunta->id --}}
+                        <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
             </div>
-        @endforeach
-
-        @if(isset($pregunta))
+        </div>
+    @endforeach
+    <div class="row paginacion d-flex justify-content-center">
+        {{$preguntas->links()}}
+    </div>
+    @if(isset($pregunta))
         <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -58,7 +64,7 @@
                 <p>No tiene ninguna pregunta favorita todavía</p>
             @endif
 
-    </div>
+        </div>
 
         <script>
             function sumarPunto(id) {
@@ -110,8 +116,8 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function (texto) {
-                        if(texto == 'Se ha eliminado con exito'){
-                            $('#pregunta'+id).empty();
+                        if (texto == 'Se ha eliminado con exito') {
+                            $('#pregunta' + id).empty();
                         }
                     },
                     error: function (data) {
