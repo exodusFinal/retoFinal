@@ -10,7 +10,7 @@
                 <div class="card-body ">
                     <div class="row">
                         <img class="rounded d-none d-md-block col-4 " src="{{ asset('images/'.$usuario->foto) }}" style="width: 15%;">
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                         <h2 class="text-center ">{{$pregunta->titulo}}</h2>
                         <p >{{$pregunta->descripcion}}</p>
                         </div>
