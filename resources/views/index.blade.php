@@ -7,7 +7,11 @@
     @foreach($preguntas as $pregunta)
         <div class="row  mb-2">
             <div class="col-3 mt-5">
-                <button type="button" class="btn btn-default" onclick="anadirFav({{$pregunta->id}},{{$pregunta->user_id}})"><i id="estrella" class="fas fa-star"  id="fav{{$pregunta->id}}"></i></button>
+                @if(\App\Favorito::where('pregunta_id', $pregunta->id)->where('user_id', \Illuminate\Support\Facades\Auth::id())->value('pregunta_id') == $pregunta->id)
+                    <button type="button" class="btn btn-default"  onclick="anadirFav({{$pregunta->id}})"><i id="estrella{{$pregunta->id}}" class="star2"  id="fav{{$pregunta->id}}"></i></button>
+                @else
+                    <button type="button" class="btn btn-default"  onclick="anadirFav({{$pregunta->id}})"><i id="estrella{{$pregunta->id}}" class="star"  id="fav{{$pregunta->id}}"></i></button>
+                @endif
                 <button type="button"  class="btn btn-primary" onclick="sumarPunto({{$pregunta->id}})">Puntos<span class="badge badge-light ml-1 " id="puntosum{{$pregunta->id}}">{{$pregunta->puntuacionPregu}}</span></button>
             </div>
             <div class="col-9">
@@ -20,15 +24,12 @@
                             <p class="col card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
                         </div>
                         <p class="card-text"></p>
-                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver anuncio</a>
+                        <a href="{{route('anuncio.detalle', $pregunta)}}" class="card-link">Ver pregunta</a>
                         <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
                     </div>
                 </div>
             </div>
         </div>
-{{--
-        <hr style="color: #5bdcc6;">
---}}
     @endforeach
 
     <div class="row paginacion d-flex justify-content-center">
@@ -112,9 +113,11 @@
                 success: function(texto) {
                    alert (texto);
                    if(texto == "Se ha añadido a favoritos"){
-                       $(".fas:before").css('color', 'orange');
+                       $("#estrella"+id).removeClass('star');
+                       $("#estrella"+id).addClass('star2')
                    }else{
-                       $(".fas:before").css('color', 'black');
+                       $("#estrella"+id).removeClass('star2');
+                       $("#estrella"+id).addClass('star')
                    }
                 },
                 error: function (data) {

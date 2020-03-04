@@ -32,7 +32,7 @@
             </div>
             <div class="m-1 col">
                 <label for="titulo">Puntuación:</label>
-                <input class="form-control" type="text" id="puntosUsu" name="puntosUsu" value="{{$users->puntosUsu}}"
+                <input class="form-control" type="text" id="puntosUsu" name="puntosUsu" value="{{$puntos}}"
                        disabled>
             </div>
 

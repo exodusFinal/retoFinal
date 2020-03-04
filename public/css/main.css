@@ -47,8 +47,19 @@
 .aButton:hover, .aButton:visited, .aButton{
     text-decoration: none;
 }
-.fas:before{
+.star:before{
+    content:"\f005";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
     color: black;
+}
+.star2:before{
+    content:"\f005";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    color: #F0E645;
 }
 .paginacion nav ul li.page-item.active .page-link{
     background-color: #5bdcc6;
