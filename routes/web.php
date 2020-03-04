@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return route('index');
+    return redirect()->route('index');
 })->middleware('auth');
 
 Auth::routes();
