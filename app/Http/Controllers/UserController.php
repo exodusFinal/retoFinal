@@ -43,11 +43,11 @@ class UserController extends Controller
         return $user->email;
     }
 
-    public function show()
+    public function show($id)
     {
         //
 
-        $usuario  = Auth::id();
+        $usuario  = $id;
         $users = User::find($usuario);
         $puntos = Pregunta::where('user_id','=', $usuario)->sum('puntuacionPregu');
 
