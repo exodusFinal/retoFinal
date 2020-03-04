@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a class="col-3 d-none d-md-block" href="{{route('perfil.usuario', $usuario->id)}}"><p>{{$usuario->nombre}} {{$usuario->apellido}}</p></a>
+                        <a class="col-3 d-none d-md-block" href="{{route('perfil', $usuario->id)}}"><p>{{$usuario->nombre}} {{$usuario->apellido}}</p></a>
                     </div>
 
                 </div>
@@ -66,7 +66,7 @@
                     @endif
                 </div>
                 <div class="col-2 d-none d-md-block">
-                    <a href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
+                    <a href="{{route('perfil', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
                 </div>
             </div>
             <hr>
