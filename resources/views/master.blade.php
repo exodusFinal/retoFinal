@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index">Inicio </a>
+                    <a class="nav-link" href="{{route('index')}}">Inicio </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create/pregunta">Crear pregunta</a>
+                    <a class="nav-link" href="{{route('pregunta.create')}}">Crear pregunta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/perfil">Perfil</a>
+                    <a class="nav-link" href="{{route('perfil', \Illuminate\Support\Facades\Auth::id())}}">Perfil</a>
                 </li>
             </ul>
             <form class="form-inline mr-5" action="/index" method="get">
