@@ -59,27 +59,6 @@
             });
         }
 
-        function contactarAnunciante() {
-            $.ajax({
-                method: 'get',
-                url: "/contactarAnunciante",
-                data: {idUsu: $('#idUsu').val(), mensaje: $('#mensaje').val()},
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success:
-                    function (data) {
-                        alert(data)
-                        $('#mensaje').val("")
-                        $('body').removeClass('modal-open');
-                    },
-                error: function (data) {
-                    console.log("Error");
-                    console.log(data);
-                }
-            });
-        }
-
         function anadirFav(id) {
             $.ajax({
                 method: "get",
