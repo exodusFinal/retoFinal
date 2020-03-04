@@ -24,7 +24,28 @@
                             <p class="col-12 col-md-6 mb-sm-3 card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
                         </div>
                         <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver pregunta</a>{{-- De $pregunta a $pregunta->id --}}
-                        <a href="" class="card-link" data-toggle="modal" data-target="#contactar">Contactar</a>
+                        <a href="" class="card-link" data-toggle="modal" data-target="#contactar{{$pregunta->id}}">Contactar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="contactar{{$pregunta->id}}" tabindex="-1" role="dialog" aria-labelledby="contactar" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contactarLabel">Contactar con compañero</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea placeholder="Mensaje" id="mensaje" name="mensaje" style="width: 100%"></textarea>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="contactarAnunciante({{$pregunta->user_id}})">Enviar</button>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -33,31 +54,6 @@
     <div class="row paginacion d-flex justify-content-center">
         {{$preguntas->links()}}
     </div>
-    @if(isset($pregunta))
-        <div class="modal fade" id="contactar" tabindex="-1" role="dialog" aria-labelledby="contactar"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactarLabel">Contactar con el Anunciante</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <textarea placeholder="Mensaje" id="mensaje" name="mensaje" style="width: 100%"></textarea>
-                        <input type="hidden" id="idUsu" value="{{$pregunta->user_id}}">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="contactarAnunciante()">Enviar</button>
-
-                    </div>
-                </div>
-            </div>
-            @else
-                <p>No tiene ninguna pregunta favorita todavía</p>
-            @endif
 
         </div>
 
@@ -81,20 +77,19 @@
                 });
             }
 
-            function contactarAnunciante() {
+            function contactarAnunciante(id) {
                 $.ajax({
                     method: 'get',
-                    url: "/contactarAnunciante",
-                    data: {idUsu: $('#idUsu').val(), mensaje: $('#mensaje').val()},
+                    url: "/contactarAnunciante/"+id,
+                    data: {idUsu: id, mensaje: $('#mensaje').val()},
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    success:
-                        function (data) {
-                            alert(data)
-                            $('#mensaje').val("")
-                            $('body').removeClass('modal-open');
-                        },
+                    success: function (data) {
+                        alert('Le has enviado un correo a '+data)
+                        $('#mensaje').val("")
+                        $('body').removeClass('modal-open');
+                    },
                     error: function (data) {
                         console.log("Error");
                         console.log(data);
