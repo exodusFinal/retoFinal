@@ -42,7 +42,7 @@ Route::post('/usuario/update/{id}', 'UserController@update')->name('perfil.updat
 
 Route::get('/favorito', 'FavoritoController@store')->name('favorito')->middleware('auth');
 
-Route::get('/contactarAnunciante', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');
+Route::get('/contactarAnunciante/{id}', 'UserController@contactar')->name('contactar.anunciante')->middleware('auth');
 
 Route::get('/anuncio/detalle/{id}', 'PreguntaController@show')->name('anuncio.detalle')->middleware('auth');
 

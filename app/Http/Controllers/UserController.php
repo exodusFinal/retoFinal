@@ -18,10 +18,10 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function contactar()
+    public function contactar($id)
     {
 
-        $user = User::find(request()->all()['idUsu']);
+        $user = User::find($id);
 
 
 
