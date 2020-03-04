@@ -2,6 +2,7 @@ Exodus
 ======
 
 This project has been made by:
+⋅⋅* Unordered sub-list. 
 ⋅⋅*[Arkaitz Galisteo](https://github.com/SrArkaitz "Arkaitz github account page")
 ⋅⋅*[Aritz Martinez](https://github.com/AritzMartinez "Aritz github account page")
 ⋅⋅*[Julen Prieto](https://github.com/AritzMartinez "Julen github account page")
