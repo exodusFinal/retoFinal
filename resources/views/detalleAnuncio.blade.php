@@ -10,13 +10,13 @@
                 <div class="card-body ">
                     <div class="row">
                         <img class="rounded d-none d-md-block col-4 " src="{{ asset('images/'.$usuario->foto) }}" style="width: 15%;">
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                         <h2 class="text-center ">{{$pregunta->titulo}}</h2>
                         <p >{{$pregunta->descripcion}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <a class="col-3 d-none d-md-block" href="{{route('perfil.usuario', $usuario->id)}}"><p>{{$usuario->nombre}} {{$usuario->apellido}}</p></a>
+                        <a class="col-3 d-none d-md-block" href="{{route('perfil', $usuario->id)}}"><p>{{$usuario->nombre}} {{$usuario->apellido}}</p></a>
                     </div>
 
                 </div>
@@ -54,7 +54,7 @@
         <form method="get">
             <div class="row">
 
-                <div class="col-2 mt-3">
+                <div class="col-2 mt-3 mr-3">
                     <button type="button" class="btn btn-primary" onclick="sumarPunto({{$resp->id}})">Puntos<span
                                 class="badge badge-light ml-1" id="puntosumR{{$resp->id}}">{{$resp->puntosResp}}</span>
                     </button>
@@ -65,8 +65,8 @@
                         <a href="{{route('archivo.descargar', $resp->id)}}">Descargar archivo</a>
                     @endif
                 </div>
-                <div class="col-2">
-                    <a class=" d-none d-md-block" href="{{route('perfil.usuario', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
+                <div class="col-2 d-none d-md-block">
+                    <a href="{{route('perfil', $resp->user->id)}}"><p>{{$resp->user->nombre}} {{$resp->user->apellido}}</p></a>
                 </div>
             </div>
             <hr>
