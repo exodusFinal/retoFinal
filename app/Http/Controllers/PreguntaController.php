@@ -35,7 +35,7 @@ class PreguntaController extends Controller
        $preguntas = Pregunta::orderBy('id', 'DESC')
             ->titulo($titulo)
             ->tema_id($tema_id)
-            ->paginate(5);
+            ->paginate(10);
 /*
     $preguntas= DB::table('preguntas')
             ->join('temas','preguntas.tema_id','=','temas.id')
@@ -147,7 +147,7 @@ class PreguntaController extends Controller
     public function orderByPuntos(Request $request){
 
         $preguntas = Pregunta::orderBy('puntuacionPregu', 'DESC')
-            ->paginate(5);
+            ->paginate(10);
 
         return view('mejorValoradas',compact('preguntas'));
     }
@@ -156,7 +156,7 @@ class PreguntaController extends Controller
 
         $preguntas = Pregunta::orderBy('id','DESC')
             ->where('user_id','=',$id)
-            ->paginate(3);
+            ->paginate(10);
 
         return view('misPreguntas',compact('preguntas'));
     }
@@ -173,7 +173,7 @@ class PreguntaController extends Controller
             ->join('temas','preguntas.tema_id','=','temas.id')
             ->where('favoritos.user_id','=',$id)
             ->orderBy('preguntas.id','DESC')
-            ->paginate(5);
+            ->paginate(10);
 
         return view('misFavoritos',compact('preguntas'));
 
