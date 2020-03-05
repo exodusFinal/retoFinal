@@ -20,7 +20,7 @@
                         <h5 class="card-title">{{$pregunta->titulo}}<span class="card-text text-capitalize text-secondary small ml-3">{{$pregunta->nombreTema}}</span></h5>
                         <p class="card-text">{{$pregunta->descripcion}}</p>
                         <div class="row">
-                            <p class="col-12 col-md-6 text-secondary"></p>
+                            <p class="col text-secondary"></p>
                             <p class="col-12 col-md-6 mb-sm-3 card-text text-secondary">Fecha: {{substr($pregunta->created_at,0,-8)}} / Hora: {{substr($pregunta->created_at,10,-3)}} </p>
                         </div>
                         <a href="{{route('anuncio.detalle', $pregunta->id)}}" class="card-link">Ver pregunta</a>{{-- De $pregunta a $pregunta->id --}}
