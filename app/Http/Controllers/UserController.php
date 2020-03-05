@@ -81,7 +81,7 @@ class UserController extends Controller
         }
     $usuario->save();
 
-        return redirect()->route('perfil');
+        return redirect()->route('perfil',$id);
 
     }
 }
