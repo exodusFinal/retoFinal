@@ -10,7 +10,7 @@
                 <div class="mt-1  text-center">
                     <label>
                         <img class="card-img-top" src="{{ asset('images/'.$users->foto) }}" style="width: 50% " alt="Card image cap">
-                        <input name="image" type="file" hidden requiered>
+                        <input name="image" type="file" hidden required>
                     </label>
                 </div>
                 <div class="mt-1 text-center">
